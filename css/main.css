@@ -486,7 +486,7 @@ footer {
     }
 }
 
-@media (min-width: 425px) {
+@media (min-width: 302px) and (max-width:480px) {
     .contacts-footer {
         display: flex;
         flex-direction: column;
