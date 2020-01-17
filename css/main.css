@@ -349,7 +349,12 @@ footer {
 
 @media only screen and (min-width: 320px) {}
 
-@media only screen and (min-width: 480px) {}
+@media only screen and (min-width: 480px) {
+    .contacts-footer {
+        display: flex;
+        flex-direction: column;
+    }
+}
 
 @media only screen and (min-width: 768px) {
     .overlay {
@@ -369,6 +374,10 @@ footer {
     }
     .navbar-nav.social {
         float: right
+    }
+    .contacts-footer {
+        display: flex;
+        flex-direction: column;
     }
 }
 
@@ -453,6 +462,10 @@ footer {
     .wrapper .container {
         box-shadow: 0 0 20px rgba(0, 0, 0, .05)
     }
+    .contacts-footer {
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 
@@ -479,5 +492,9 @@ footer {
     }
     .navbar-header {
         padding: 0 15px;
+    }
+    .contacts-footer {
+        display: flex;
+        flex-direction: column;
     }
 }
