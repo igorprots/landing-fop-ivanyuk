@@ -4409,9 +4409,7 @@ select[multiple].input-group-sm>.input-group-btn>.btn {
     -webkit-overflow-scrolling: touch
 }
 
-.navbar-collapse.in {
-    overflow-y: hidden
-}
+.navbar-collapse.in {}
 
 @media (min-width:768px) {
     .navbar-collapse {

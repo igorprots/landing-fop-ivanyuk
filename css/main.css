@@ -469,6 +469,12 @@ footer {
     header {
         margin: 0;
     }
+    .navbar {
+        min-height: 78vh;
+        background: url(/img/bg/header-bg.jpg) no-repeat;
+        width: 100%;
+        background-size: cover !important;
+    }
     .contacts {
         width: 100%;
         font-size: x-small;
@@ -490,5 +496,11 @@ footer {
     .contacts-footer {
         display: flex;
         flex-direction: column;
+    }
+    .navbar {
+        min-height: 78vh;
+        background: url(/img/bg/header-bg.jpg) no-repeat;
+        width: 100%;
+        background-size: cover !important;
     }
 }
