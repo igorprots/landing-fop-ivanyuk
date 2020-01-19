@@ -469,6 +469,9 @@ footer {
     header {
         margin: 0;
     }
+    .header {
+        margin-top: -15px;
+    }
     .navbar {
         min-height: 78vh;
         background: url(/img/bg/header-bg.jpg) no-repeat;
@@ -493,6 +496,9 @@ footer {
 }
 
 @media (min-width: 302px) and (max-width:480px) {
+    .header {
+        margin-top: -15px;
+    }
     .contacts-footer {
         display: flex;
         flex-direction: column;
