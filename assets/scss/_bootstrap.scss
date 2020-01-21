@@ -2404,7 +2404,6 @@ fieldset[disabled] .btn {
     cursor: not-allowed;
     pointer-events: none;
     opacity: .65;
-    filter: alpha(opacity=65);
     -webkit-box-shadow: none;
     box-shadow: none
 }
@@ -3697,7 +3696,6 @@ input[type=button].btn-block {
     text-decoration: none;
     background-color: transparent;
     background-image: none;
-    filter: progid: DXImageTransform.Microsoft.gradient(enabled=false);
     cursor: not-allowed
 }
 
@@ -6068,7 +6066,6 @@ a.list-group-item-danger.active:focus {
     color: #000;
     text-shadow: 0 1px 0 #fff;
     opacity: .2;
-    filter: alpha(opacity=20)
 }
 
 .close:hover,
@@ -6077,7 +6074,6 @@ a.list-group-item-danger.active:focus {
     text-decoration: none;
     cursor: pointer;
     opacity: .5;
-    filter: alpha(opacity=50)
 }
 
 button.close {
@@ -6152,12 +6148,10 @@ button.close {
 
 .modal-backdrop.fade {
     opacity: 0;
-    filter: alpha(opacity=0)
 }
 
 .modal-backdrop.in {
     opacity: .5;
-    filter: alpha(opacity=50)
 }
 
 .modal-header {
@@ -6228,12 +6222,10 @@ button.close {
     font-size: 12px;
     line-height: 1.4;
     opacity: 0;
-    filter: alpha(opacity=0)
 }
 
 .tooltip.in {
     opacity: .9;
-    filter: alpha(opacity=90)
 }
 
 .tooltip.top {
@@ -6538,7 +6530,6 @@ button.close {
     bottom: 0;
     width: 15%;
     opacity: .5;
-    filter: alpha(opacity=50);
     font-size: 20px;
     color: #fff;
     text-align: center;
@@ -6549,7 +6540,6 @@ button.close {
     background-image: -webkit-linear-gradient(left, color-stop(rgba(0, 0, 0, .5) 0), color-stop(rgba(0, 0, 0, .0001) 100%));
     background-image: linear-gradient(to right, rgba(0, 0, 0, .5) 0, rgba(0, 0, 0, .0001) 100%);
     background-repeat: repeat-x;
-    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1)
 }
 
 .carousel-control.right {
@@ -6558,7 +6548,6 @@ button.close {
     background-image: -webkit-linear-gradient(left, color-stop(rgba(0, 0, 0, .0001) 0), color-stop(rgba(0, 0, 0, .5) 100%));
     background-image: linear-gradient(to right, rgba(0, 0, 0, .0001) 0, rgba(0, 0, 0, .5) 100%);
     background-repeat: repeat-x;
-    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1)
 }
 
 .carousel-control:hover,
@@ -6567,7 +6556,6 @@ button.close {
     color: #fff;
     text-decoration: none;
     opacity: .9;
-    filter: alpha(opacity=90)
 }
 
 .carousel-control .icon-prev,
