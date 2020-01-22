@@ -1,7 +1,7 @@
 'use strict';
 /* if work with html set TRUE, else - FALSE */
 const htmlOWp = false;
-let env_prod = true;
+let env_prod = false;
 
 // TODO: add https://github.com/olegskl/gulp-stylelint
 // TODO: add https://github.com/morishitter/stylefmt

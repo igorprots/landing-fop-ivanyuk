@@ -362,6 +362,9 @@ php_flag  log_errors on
 php_value error_log  /PHP_errors.log
 
 # BEGIN WordPress
+# Рядки між `BEGIN WordPress` і `END WordPress` були створені автоматично.
+# Вони можуть бути змінені тільки фільтрами WordPress.
+# Всі зміни між цими позначками будуть перезаписані.
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteBase /

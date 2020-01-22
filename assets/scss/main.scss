@@ -50,7 +50,7 @@ a {
 
 .navbar {
     min-height: 100vh;
-    background: url('../img/bg/header-bg.jpg') no-repeat;
+    background: url('../img/bg/header-bg.png') no-repeat;
     width: 100%;
     background-size: cover !important;
 }
@@ -61,8 +61,7 @@ a {
 .navbar-header {
     display: flex;
     margin: -15px;
-    padding: 0 15px;
-    width: 100;
+    justify-content: space-between;
 }
 
 .navbar-header img {
@@ -75,6 +74,7 @@ a {
 .navbar-collapse {
     width: 100%;
     height: 100%;
+    background: white;
 }
 
 .navbar-toggle {
@@ -92,17 +92,17 @@ a {
 .navbar-brand {
     font-family: 'Russo One', sans-serif;
     font-weight: 500;
-    border: 2px solid white;
+    border: 2px solid black;
     margin: 15px;
     padding: 8px 14px 7px;
     font-size: 1.3em;
     height: auto;
-    color: white;
+    color: black;
 }
 
 .navbar-brand:hover {
-    color: black;
-    border-color: black
+    color: orangered;
+    border-color: orangered;
 }
 
 .social li a {
@@ -115,13 +115,13 @@ a {
 .navbar-nav>li>a {
     display: block;
     margin: 12px 0;
-    color: white;
+    color: black;
     transition: color .25s ease-in-out;
 }
 
 .navbar-nav>li>a:hover {
     background: none;
-    color: black;
+    color: orangered;
 }
 
 .navbar-nav>li>a:focus {
@@ -457,37 +457,42 @@ footer {
     }
 }
 
-@media (max-width:320px) {
-    header {
-        margin: 0;
-    }
-    .header {
-        margin-top: -15px;
-    }
-    .navbar {
-        min-height: 78vh;
-        background: url(/img/bg/header-bg.jpg) no-repeat;
+// @media (max-width:320px) {
+//     header {
+//         margin: 0;
+//     }
+//     .header {
+//         margin-top: -15px;
+//     }
+//     .navbar {
+//         min-height: 78vh;
+//         background: url(../img/bg/header-bg-mobile.jpg) no-repeat;
+//         width: 100%;
+//         background-size: cover !important;
+//     }
+//     .contacts {
+//         width: 100%;
+//         font-size: x-small;
+//     }
+//     .contacts-list {
+//         display: flex;
+//         flex-direction: column;
+//     }
+//     .navbar-header {
+//         padding: 0 15px;
+//     }
+//     .contacts-footer {
+//         display: flex;
+//         flex-direction: column;
+//     }
+// }
+@media (max-width: 768px) {
+    .navbar-nav.social {
         width: 100%;
-        background-size: cover !important;
-    }
-    .contacts {
-        width: 100%;
-        font-size: x-small;
-    }
-    .contacts-list {
-        display: flex;
-        flex-direction: column;
-    }
-    .navbar-header {
-        padding: 0 15px;
-    }
-    .contacts-footer {
-        display: flex;
-        flex-direction: column;
     }
 }
 
-@media (min-width: 302px) and (max-width:480px) {
+@media (max-width:480px) {
     .header {
         margin-top: -15px;
     }
@@ -497,7 +502,7 @@ footer {
     }
     .navbar {
         min-height: 78vh;
-        background: url(/img/bg/header-bg.jpg) no-repeat;
+        background: url(../img/bg/header-bg-mobile.png) no-repeat !important;
         width: 100%;
         background-size: cover !important;
     }

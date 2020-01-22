@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Health Check &amp; Troubleshooting - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2019-06-17 11:18:03+0000\n"
+"PO-Revision-Date: 2019-12-29 21:40:50+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -10,6 +10,109 @@ msgstr ""
 "X-Generator: GlotPress/2.4.0-alpha\n"
 "Language: uk_UA\n"
 "Project-Id-Version: Plugins - Health Check &amp; Troubleshooting - Stable (latest release)\n"
+
+#: includes/tools/class-health-check-plugin-compatibility.php:23
+msgid "Plugin"
+msgstr "Плагін"
+
+#: includes/tools/class-health-check-plugin-compatibility.php:26
+msgid "Highest supported PHP"
+msgstr "Максимально підтримувана версія PHP"
+
+#: includes/tools/class-health-check-plugin-compatibility.php:25
+msgid "Minimum PHP"
+msgstr "Мінімальна версія PHP"
+
+#. translators: %s: URL for the Site Health page.
+#: includes/class-health-check-dashboard-widget.php:62
+msgid "<a href=\"%s\">Visit the Site Health page</a> to gather information on about your site.."
+msgstr "Перейдіть на сторінку <a href=\"%s\">Здоров'я сайту</a> для збору інформації по вашому сайту."
+
+#: includes/class-health-check-dashboard-widget.php:46
+msgid "No information yet&hellip;"
+msgstr "Поки немає інформації..."
+
+#: includes/class-health-check.php:233
+msgid "Should be improved"
+msgstr "Потребує покращення"
+
+#: includes/class-health-check.php:232
+msgid "Good"
+msgstr "Добре"
+
+#: includes/class-health-check-site-status.php:1932
+msgid "Timezone"
+msgstr "Часовий пояс"
+
+#: includes/tools/class-health-check-plugin-compatibility.php:51
+msgid "Check plugins"
+msgstr "Перевірити плагіни"
+
+#: includes/class-health-check-debug-data.php:718
+#: includes/class-health-check-debug-data.php:726
+msgid "Server headers"
+msgstr "Заголовки сервера"
+
+#: includes/class-health-check-debug-data.php:618
+msgid "Unable to determine the websites server user"
+msgstr "Неможливо визначити користувача, від якого працює вебсервер"
+
+#: includes/class-health-check-debug-data.php:617
+msgid "Website server user"
+msgstr "Користувач, від якого працює вебсервер"
+
+#: includes/class-health-check-debug-data.php:150
+msgid "Inactive Themes"
+msgstr "Неактивні теми"
+
+#: includes/class-health-check-debug-data.php:145
+msgid "Parent Theme"
+msgstr "Батьківська тема"
+
+#: includes/tools/class-health-check-plugin-compatibility.php:77
+msgid "Could not be determined"
+msgstr "Неможливо визначити"
+
+#: includes/class-health-check-site-status.php:1244
+msgid "Update your site timezone"
+msgstr "Оновити часовий пояс сайту"
+
+#: includes/class-health-check-debug-data.php:719
+msgid "Could not retrieve server headers"
+msgstr "Неможливо отримати заголовки сервера"
+
+#: includes/class-health-check-site-status.php:1493
+msgid "A scheduled event is late"
+msgstr "Заплановане завдання пропущено"
+
+#: includes/class-health-check-site-status.php:1239
+msgid "Your site is not using localized timezones"
+msgstr "Ваш сайт не використовує локальні часові пояси"
+
+#: includes/class-health-check-site-status.php:1221
+msgid "Your site uses localized timezones"
+msgstr "Ваш сайт використовує локальні часові пояси"
+
+#: includes/tools/class-health-check-plugin-compatibility.php:6
+msgid "Plugin compatibility"
+msgstr "Сумісність плагінів"
+
+#: includes/class-health-check-dashboard-widget.php:73
+msgid "Great job! Your site currently passes all site health checks."
+msgstr "Чудово! Ваш сайт успішно пройшов всі тести перевірки стану здоров'я."
+
+#: includes/class-health-check-dashboard-widget.php:71
+msgid "Your site has critical issues that should be addressed as soon as possible to improve the performance or security of your website."
+msgstr "На вашому сайті є критичні проблеми, які варто вирішити якомога швидше, для поліпшення безпеки та продуктивності вашого сайту."
+
+#: includes/class-health-check-dashboard-widget.php:48
+#: pages/site-health-header.php:29
+msgid "Results are still loading&hellip;"
+msgstr "Результати все ще завантажуються..."
+
+#: assets/mu-plugin/health-check-troubleshooting-mode.php:268
+msgid "When bulk-enabling plugins, a site failure occurred. Because of this the change was automatically reverted."
+msgstr "При масовому включенні плагінів виникла помилка на сайті. Виконано автоматичний відкат зроблених змін."
 
 #: includes/class-health-check-site-status.php:342
 msgid "Your site has 1 active plugin, and it is up to date."
@@ -20,23 +123,19 @@ msgid "Your site has 1 installed theme, and it is up to date."
 msgstr "На вашому сайті встановлена 1 тема, і вона актуальна."
 
 #. translators: %s: The module name.
-#: includes/class-health-check-site-status.php:966
+#: includes/class-health-check-site-status.php:889
 msgid "The required module, %s, is not installed, or has been disabled."
 msgstr "Необхідне розширення %s не встановлено або відключено."
 
-#: pages/debug-data.php:32
+#: pages/debug-data.php:38
 msgid "Copy site info to clipboard"
 msgstr "Скопіювати інформацію в буфер обміну"
 
-#: pages/debug-data.php:26
-msgid "If you want to export a handy list of all the information on this page, you can use the button below to copy it to the clipboard. You can then paste it in a text file and save it to your harddrive, or paste it in an email exchange with a support engineer or theme/plugin developer for example."
-msgstr "Якщо вам потрібно експортувати інформацію з цієї сторінки, ви можете скористатися кнопкою нижче для копіювання її в буфер обміну. Ви можете вставити її в текстовий файл і зберегти на диск або, наприклад, відправити в повідомленні співробітникам підтримки або розробникам теми або плагіна."
-
-#: pages/site-health-header.php:57
+#: pages/site-health-header.php:60
 msgid "The Site Health check requires JavaScript."
 msgstr "Відображення інформації про здоров'я сайту вимагає включеного JavaScript."
 
-#: pages/site-health-header.php:30
+#: pages/site-health-header.php:33
 msgid "Secondary menu"
 msgstr "Вторинне меню"
 
@@ -48,105 +147,98 @@ msgstr "Здоров'я сайту"
 msgid "Extended PHP Information"
 msgstr "Детальна інформація про PHP"
 
-#: pages/debug-data.php:117
+#: pages/debug-data.php:123
 msgid "View extended PHP information"
 msgstr "Подивитися детальну інформацію про PHP"
 
-#: pages/site-health-header.php:25
-msgid "Current completion rate:"
-msgstr "Поточний прогрес:"
-
-#: pages/debug-data.php:34
+#: pages/debug-data.php:40
 msgid "Copied!"
 msgstr "Скопійовано!"
 
-#: includes/class-health-check-debug-data.php:1305
+#: includes/class-health-check-debug-data.php:1399
 msgid "Total size is not available. Some errors were encountered when determining the size of your installation."
 msgstr "Загальний розмір недоступний. Виникли помилки при підрахунку місця, використовуваного вашої установкою."
 
-#: includes/class-health-check-debug-data.php:1261
+#: includes/class-health-check-debug-data.php:1355
 msgid "The directory size calculation has timed out. Usually caused by a very large number of sub-directories and files."
 msgstr "Підрахунок використовуваного місця зайняв занадто багато часу. Можливо, що у вас занадто багато підпапок і файлів."
 
-#: includes/class-health-check-debug-data.php:1254
+#: includes/class-health-check-debug-data.php:1348
 msgid "The size cannot be calculated. The directory is not accessible. Usually caused by invalid permissions."
 msgstr "Підрахунок використовуваного місця неможливий. Папка недоступна, можливо на неї встановлені невірні права доступу."
 
-#: includes/class-health-check-debug-data.php:916
+#: includes/class-health-check-debug-data.php:954
+#: includes/class-health-check-debug-data.php:1003
 msgid "Theme directory location"
 msgstr "Місцезнаходження директорії тем"
 
-#: includes/class-health-check-debug-data.php:912
+#: includes/class-health-check-debug-data.php:950
 msgid "Theme features"
 msgstr "Можливості теми"
 
-#: includes/class-health-check-debug-data.php:908
+#: includes/class-health-check-debug-data.php:946
 msgid "None"
 msgstr "Немає"
 
-#: includes/class-health-check-debug-data.php:607
+#: includes/class-health-check-debug-data.php:628
 msgid "PHP version"
 msgstr "Версія PHP"
 
-#: includes/class-health-check-debug-data.php:602
+#: includes/class-health-check-debug-data.php:623
 msgid "Web server"
 msgstr "ПЗ вебсервера"
 
-#: includes/class-health-check-debug-data.php:499
+#: includes/class-health-check-debug-data.php:504
 msgid "ImageMagick version string"
 msgstr "Рядок версії ImageMagick"
 
-#: includes/class-health-check-debug-data.php:494
+#: includes/class-health-check-debug-data.php:499
 msgid "ImageMagick version number"
 msgstr "Номер версії ImageMagick"
 
-#: includes/class-health-check-debug-data.php:444
+#: includes/class-health-check-debug-data.php:449
 msgid "Plugins directory size"
 msgstr "Розмір директорії плагінів"
 
-#: includes/class-health-check-debug-data.php:440
+#: includes/class-health-check-debug-data.php:445
 msgid "Plugins directory location"
 msgstr "Місцезнаходження директорії плагінів"
 
-#: includes/class-health-check-debug-data.php:435
+#: includes/class-health-check-debug-data.php:440
 msgid "Themes directory size"
 msgstr "Розмір директорії тем"
 
-#: includes/class-health-check-debug-data.php:431
+#: includes/class-health-check-debug-data.php:436
 msgid "Themes directory location"
 msgstr "Місцезнаходження директорії тем"
 
-#: includes/class-health-check-debug-data.php:426
+#: includes/class-health-check-debug-data.php:431
 msgid "Uploads directory size"
 msgstr "Розмір директорії завантажень"
 
-#: includes/class-health-check-debug-data.php:422
+#: includes/class-health-check-debug-data.php:427
 msgid "Uploads directory location"
 msgstr "Місцезнаходження директорії завантажень"
 
-#: includes/class-health-check-debug-data.php:417
+#: includes/class-health-check-debug-data.php:422
 msgid "WordPress directory size"
 msgstr "Розмір директорії WordPress"
 
-#: includes/class-health-check-debug-data.php:413
+#: includes/class-health-check-debug-data.php:418
 msgid "WordPress directory location"
 msgstr "Місцезнаходження директорії WordPress"
 
-#: includes/class-health-check-debug-data.php:409
+#: includes/class-health-check-debug-data.php:414
 msgid "Loading&hellip;"
 msgstr "Завантажується&hellip;"
 
-#: includes/class-health-check-debug-data.php:316
+#: includes/class-health-check-debug-data.php:321
 msgid "Shows whether WordPress is able to write to the directories it needs access to."
 msgstr "Показує можливість WordPress запису в папки, куди потрібен доступ."
 
-#: includes/class-health-check-debug-data.php:231
+#: includes/class-health-check-debug-data.php:236
 msgid "These settings alter where and how parts of WordPress are loaded."
 msgstr "Ці налаштування змінюють звідки і як завантажуються компоненти WordPress."
-
-#: pages/debug-data.php:23
-msgid "This page can show you every detail about the configuration of your WordPress website. If we see anything here that could be improved, we will let you know on the Site Health Status page."
-msgstr "Ця сторінка показує подробиці про конфігурацію вашого сайту WordPress. Якщо що-небудь може бути покращено, ви побачите це на сторінці стану сайту."
 
 #: pages/debug-data.php:19
 msgid "Site Health Info"
@@ -156,7 +248,7 @@ msgstr "Інформація про здоров'я сайту"
 msgid "Passed tests"
 msgstr "Успішні тести"
 
-#: pages/site-status.php:32
+#: includes/class-health-check-dashboard-widget.php:17 pages/site-status.php:32
 msgid "Site Health Status"
 msgstr "Стан здоров'я сайту"
 
@@ -172,7 +264,7 @@ msgstr "Чудово!"
 msgid "Troubleshooting mode"
 msgstr "Режим вирішення проблем"
 
-#: includes/class-health-check-debug-data.php:670
+#: includes/class-health-check-debug-data.php:691
 msgid "Is SUHOSIN installed?"
 msgstr "Чи встановлений SUHOSIN?"
 
@@ -202,264 +294,264 @@ msgstr "Мова користувача"
 msgid "Site Language"
 msgstr "Мова сайту"
 
-#: includes/class-health-check-site-status.php:1952
+#: includes/class-health-check-site-status.php:1928
 msgid "Debugging enabled"
 msgstr "Налагодження ввімкнено"
 
-#: includes/class-health-check-site-status.php:1875
+#: includes/class-health-check-site-status.php:1851
 msgid "The REST API did not behave correctly"
 msgstr "REST API не працює коректно"
 
-#: includes/class-health-check-site-status.php:1858
+#: includes/class-health-check-site-status.php:1834
 msgid "The REST API encountered an unexpected result"
 msgstr "REST API видав несподіваний результат"
 
 #. translators: 1: The HTTP response code. 2: The error message returned.
-#: includes/class-health-check-site-status.php:1849
+#: includes/class-health-check-site-status.php:1825
 msgid "Error: [%1$s] %2$s"
 msgstr "Помилка: [%1$s] %2$s"
 
-#: includes/class-health-check-site-status.php:1840
+#: includes/class-health-check-site-status.php:1816
 msgid "The REST API encountered an error"
 msgstr "REST API видав помилку"
 
-#: includes/class-health-check-site-status.php:1807
+#: includes/class-health-check-site-status.php:1783
 msgid "The REST API is one way WordPress, and other applications, communicate with the server. One example is the block editor screen, which relies on this to display, and save, your posts and pages."
 msgstr "REST API це спосіб комунікації між самим WordPress і іншими додатками. Наприклад, екран редактора блоків використовує його для відображення і збереження ваших записів і сторінок."
 
 #. translators: 1: Name of the constant used. 2: List of hostnames whitelisted.
-#: includes/class-health-check-site-status.php:1777
+#: includes/class-health-check-site-status.php:1753
 msgid "HTTP requests have been blocked by the %1$s constant, with some hosts whitelisted: %2$s."
 msgstr "HTTP запити блокуються константою %1$s, з білим списком хостів: %2$s."
 
-#: includes/class-health-check-site-status.php:1771
+#: includes/class-health-check-site-status.php:1747
 msgid "HTTP requests are partially blocked"
 msgstr "HTTP запити частково блокуються"
 
 #. translators: %s: Name of the constant used.
-#: includes/class-health-check-site-status.php:1762
+#: includes/class-health-check-site-status.php:1738
 msgid "HTTP requests have been blocked by the %s constant, with no allowed hosts."
 msgstr "HTTP запити блокуються константою %s, немає дозволених хостів."
 
-#: includes/class-health-check-site-status.php:1756
+#: includes/class-health-check-site-status.php:1732
 msgid "HTTP requests are blocked"
 msgstr "HTTP запити блокуються"
 
-#: includes/class-health-check-site-status.php:1736
+#: includes/class-health-check-site-status.php:1712
 msgid "It is possible for site maintainers to block all, or some, communication to other sites and services. If set up incorrectly, this may prevent plugins and themes from working as intended."
 msgstr "На сайті можуть блокуватися всі або тільки деякі підключення до інших сайтів і служб. При некоректному встановленні це може приводити до неправильної роботи тем і плагінів."
 
-#: includes/class-health-check-site-status.php:1701
+#: includes/class-health-check-site-status.php:1677
 msgid "Your site could not complete a loopback request"
 msgstr "Ваш сайт не зміг виконати петлевий запит"
 
-#: includes/class-health-check-site-status.php:1688
+#: includes/class-health-check-site-status.php:1664
 msgid "Loopback requests are used to run scheduled events, and are also used by the built-in editors for themes and plugins to verify code stability."
 msgstr "Петльові запити використовуються для запуску запланованих завдань, а також використовуються вбудованим редактором коду плагінів і тем для перевірки коректності коду."
 
-#: includes/class-health-check-site-status.php:1680
+#: includes/class-health-check-site-status.php:1656
 msgid "Your site can perform loopback requests"
 msgstr "Ваш сайт може виконувати петльові запити"
 
-#: includes/class-health-check-site-status.php:1577
+#: includes/class-health-check-site-status.php:1553
 msgid "Background updates may not be working properly"
 msgstr "Фонові оновлення можуть працювати некоректно"
 
-#: includes/class-health-check-site-status.php:1569
+#: includes/class-health-check-site-status.php:1545
 msgid "Background updates are not working as expected"
 msgstr "Фонові оновлення працюють неправильно"
 
-#: includes/class-health-check-site-status.php:1566
-#: includes/class-health-check-site-status.php:1630
+#: includes/class-health-check-site-status.php:1542
+#: includes/class-health-check-site-status.php:1606
 msgid "Passed"
 msgstr "успішно"
 
-#: includes/class-health-check-site-status.php:1552
+#: includes/class-health-check-site-status.php:1528
 msgid "Background updates ensure that WordPress can auto-update if a security update is released for the version you are currently using."
 msgstr "Фонові оновлення використовуються для автоматичних оновлень безпеки WordPress в рамках однієї гілки значних випусків."
 
-#: includes/class-health-check-site-status.php:1544
+#: includes/class-health-check-site-status.php:1520
 msgid "Background updates are working"
 msgstr "Фонові оновлення працюють"
 
-#: includes/class-health-check-site-status.php:1516
+#: includes/class-health-check-site-status.php:1480
 msgid "A scheduled event has failed"
 msgstr "Заплановане завдання пропущено"
 
 #. translators: %s: The error message returned while from the cron scheduler.
-#: includes/class-health-check-site-status.php:1508
+#: includes/class-health-check-site-status.php:1473
 msgid "While trying to test your site&#8217;s scheduled events, the following error was returned: %s"
 msgstr "При перевірці запланованих завдань на сайті виникла помилка: %s"
 
-#: includes/class-health-check-site-status.php:1502
+#: includes/class-health-check-site-status.php:1467
 msgid "It was not possible to check your scheduled events"
 msgstr "Неможливо перевірити заплановані завдання"
 
-#: includes/class-health-check-site-status.php:1491
+#: includes/class-health-check-site-status.php:1456
 msgid "Scheduled events are what periodically looks for updates to plugins, themes and WordPress itself. It is also what makes sure scheduled posts are published on time. It may also be used by various plugins to make sure that planned actions are executed."
 msgstr "Заплановані завдання періодично перевіряють оновлення для плагінів, тем і самого WordPress, здійснюють публікацію запланованих записів. Деякі плагіни також використовують їх для планування виконуваних дій."
 
-#: includes/class-health-check-site-status.php:1483
+#: includes/class-health-check-site-status.php:1448
 msgid "Scheduled events are running"
 msgstr "Заплановані завдання працюють"
 
-#: includes/class-health-check-site-status.php:1464
+#: includes/class-health-check-site-status.php:1429
 msgid "Talk to your web host about OpenSSL support for PHP."
 msgstr "Зверніться в технічну підтримку хостингу для включення OpenSSL в PHP."
 
-#: includes/class-health-check-site-status.php:1460
+#: includes/class-health-check-site-status.php:1425
 msgid "Your site is unable to communicate securely with other services"
 msgstr "Ваш сайт не може безпечно підключатися до інших служб"
 
-#: includes/class-health-check-site-status.php:1456
+#: includes/class-health-check-site-status.php:1421
 msgid "Your site can communicate securely with other services"
 msgstr "Ваш сайт може безпечно підключатися до інших служб"
 
-#: includes/class-health-check-site-status.php:1445
+#: includes/class-health-check-site-status.php:1410
 msgid "Securely communicating between servers are needed for transactions such as fetching files, conducting sales on store sites, and much more."
 msgstr "Безпечне підключення між серверами використовується для отримання файлів, передачі інформації про покупках на сайтах магазинів і багато чого іншого."
 
-#: includes/class-health-check-site-status.php:1422
+#: includes/class-health-check-site-status.php:1387
 msgid "Your site does not use HTTPS"
 msgstr "Ваш сайт не використовує HTTPS"
 
-#: includes/class-health-check-site-status.php:1416
+#: includes/class-health-check-site-status.php:1381
 msgid "Update your site addresses"
 msgstr "Оновіть адресу вашого сайту"
 
-#: includes/class-health-check-site-status.php:1402
+#: includes/class-health-check-site-status.php:1367
 msgid "Only parts of your site are using HTTPS"
 msgstr "Ваш сайт використовує HTTPS лише частково"
 
-#: includes/class-health-check-site-status.php:1388
+#: includes/class-health-check-site-status.php:1353
 msgid "Read more about why you should use HTTPS"
 msgstr "Дізнайтеся більше, чому вам слід використовувати HTTPS"
 
 #. translators: Documentation explaining HTTPS and why it should be used.
-#: includes/class-health-check-site-status.php:1387
+#: includes/class-health-check-site-status.php:1352
 msgid "https://wordpress.org/support/article/why-should-i-use-https/"
 msgstr "https://wordpress.org/support/article/why-should-i-use-https/"
 
-#: includes/class-health-check-site-status.php:1382
+#: includes/class-health-check-site-status.php:1347
 msgid "An HTTPS connection is needed for many features on the web today, it also gains the trust of your visitors by helping to protecting their online privacy."
 msgstr "Використання HTTPS сьогодні потрібно для багатьох можливостей мережі, також захист конфіденційності відвідувачів додає довіри до вашого сайту."
 
-#: includes/class-health-check-site-status.php:1374
+#: includes/class-health-check-site-status.php:1339
 msgid "Your website is using an active HTTPS connection."
 msgstr "Ваш сайт використовує активне підключення HTTPS"
 
 #. translators: 1: WP_DEBUG_DISPLAY, 2: WP_DEBUG
-#: includes/class-health-check-site-status.php:1347
+#: includes/class-health-check-site-status.php:1312
 msgid "The value, %1$s, has either been enabled by %2$s or added to your configuration file. This will make errors display on the front end of your site."
 msgstr "Визначення %1$s було або включено константою %2$s, або додано в файл конфігурації. Помилки будуть показані в браузері на частині сайту для відвідувачів."
 
-#: includes/class-health-check-site-status.php:1339
+#: includes/class-health-check-site-status.php:1304
 msgid "Your site is set to display errors to site visitors"
 msgstr "Налаштування сайту дозволяють відображення помилок для відвідувачів"
 
 #. translators: %s: WP_DEBUG_LOG
-#: includes/class-health-check-site-status.php:1332
+#: includes/class-health-check-site-status.php:1297
 msgid "The value, %s, has been added to this website&#8217;s configuration file. This means any errors on the site will be written to a file which is potentially available to normal users."
 msgstr "Константа %s була додана в файл конфігурації. Помилки, що виникають на сайті будуть записані в файл, можливо доступний звичайним користувачам."
 
-#: includes/class-health-check-site-status.php:1324
+#: includes/class-health-check-site-status.php:1289
 msgid "Your site is set to log errors to a potentially public file."
 msgstr "Ваш сайт записує помилки в файл, можливо доступний публічно."
 
-#: includes/class-health-check-site-status.php:1315
+#: includes/class-health-check-site-status.php:1280
 msgid "Read about debugging in WordPress."
 msgstr "Дізнайтеся більше про налагодження в WordPress."
 
 #. translators: Documentation explaining debugging in WordPress.
-#: includes/class-health-check-site-status.php:1314
+#: includes/class-health-check-site-status.php:1279
 msgid "https://wordpress.org/support/article/debugging-in-wordpress/"
 msgstr "https://wordpress.org/support/article/debugging-in-wordpress/"
 
-#: includes/class-health-check-site-status.php:1309
+#: includes/class-health-check-site-status.php:1274
 msgid "Debug mode is often enabled to gather more details about an error or site failure, but may contain sensitive information which should not be available on a publicly available website."
 msgstr "Режим налагодження зазвичай включений для збору подробиць про помилки або проблеми сайту, ці дані можуть містити важливу інформацію, яка не повинна бути загальнодоступною."
 
-#: includes/class-health-check-site-status.php:1301
+#: includes/class-health-check-site-status.php:1266
 msgid "Your site is not set to output debug information"
 msgstr "Ваш сайт не налаштований на віддачу налагоджувальної інформації"
 
-#: includes/class-health-check-site-status.php:1273
+#: includes/class-health-check-site-status.php:1196
 msgid "Get help resolving this issue."
 msgstr "Отримайте допомогу у вирішенні цієї проблеми."
 
 #. translators: Localized Support reference.
-#: includes/class-health-check-site-status.php:1272
+#: includes/class-health-check-site-status.php:1195
 msgid "https://wordpress.org/support"
 msgstr "https://uk.wordpress.org/support"
 
 #. translators: 1: The IP address WordPress.org resolves to. 2: The error
 #. returned by the lookup.
-#: includes/class-health-check-site-status.php:1262
+#: includes/class-health-check-site-status.php:1185
 msgid "Your site is unable to reach WordPress.org at %1$s, and returned the error: %2$s"
 msgstr "Ваш сайт не зміг підключитися до WordPress.org по %1$s, і повернув помилку: %2$s"
 
-#: includes/class-health-check-site-status.php:1253
+#: includes/class-health-check-site-status.php:1176
 msgid "Could not reach WordPress.org"
 msgstr "WordPress.org недоступний"
 
-#: includes/class-health-check-site-status.php:1236
+#: includes/class-health-check-site-status.php:1159
 msgid "Communicating with the WordPress servers is used to check for new versions, and to both install and update WordPress core, themes or plugins."
 msgstr "Підключення до серверів WordPress.org використовується для перевірки нових версій, встановлень і оновлень WordPress, плагінів і тем."
 
-#: includes/class-health-check-site-status.php:1228
+#: includes/class-health-check-site-status.php:1151
 msgid "Can communicate with WordPress.org"
 msgstr "WordPress.org доступний"
 
 #. translators: 1: Name of the library, 2: Number of version.
-#: includes/class-health-check-site-status.php:1192
-#: includes/class-health-check-site-status.php:1208
+#: includes/class-health-check-site-status.php:1115
+#: includes/class-health-check-site-status.php:1131
 msgid "WordPress&#8217; utf8mb4 support requires MySQL client library (%1$s) version %2$s or newer. Please contact your server administrator."
 msgstr "Підтримка utf8mb4 вимагає клієнтську бібліотеку MySQL (%1$s) версії %2$s або вище. Будь ласка, зверніться в технічну підтримку хостингу."
 
-#: includes/class-health-check-site-status.php:1186
-#: includes/class-health-check-site-status.php:1202
+#: includes/class-health-check-site-status.php:1109
+#: includes/class-health-check-site-status.php:1125
 msgid "utf8mb4 requires a newer client library"
 msgstr "utf8mb4 вимагає більш нової клієнтської бібліотеки"
 
 #. translators: %s: Version number.
-#: includes/class-health-check-site-status.php:1157
+#: includes/class-health-check-site-status.php:1080
 msgid "WordPress&#8217; utf8mb4 support requires MariaDB version %s or greater. Please contact your server administrator."
 msgstr "Підтримка utf8mb4 вимагає MariaDB версії %s або вище. Будь ласка, зверніться в технічну підтримку хостингу."
 
-#: includes/class-health-check-site-status.php:1151
+#: includes/class-health-check-site-status.php:1074
 msgid "utf8mb4 requires a MariaDB update"
 msgstr "Підтримка кодування utf8mb4 потребує оновлення ПЗ MariaDB."
 
 #. translators: %s: Version number.
-#: includes/class-health-check-site-status.php:1137
+#: includes/class-health-check-site-status.php:1060
 msgid "WordPress&#8217; utf8mb4 support requires MySQL version %s or greater. Please contact your server administrator."
 msgstr "Підтримка utf8mb4 вимагає MySQL версії %s або вище. Будь ласка, зверніться в технічну підтримку хостингу."
 
-#: includes/class-health-check-site-status.php:1131
+#: includes/class-health-check-site-status.php:1054
 msgid "utf8mb4 requires a MySQL update"
 msgstr "Підтримка кодування utf8mb4 потребує оновлення ПЗ MySQL."
 
-#: includes/class-health-check-site-status.php:1121
+#: includes/class-health-check-site-status.php:1044
 msgid "UTF8MB4 is a database storage attribute that makes sure your site can store non-English text and other strings (for instance emoticons) without unexpected problems."
 msgstr "UTF8MB4 це кодування бази даних, що робить можливим збереження текстів з символами національних мов і іншими (наприклад емодзі) без несподіваних проблем."
 
-#: includes/class-health-check-site-status.php:1113
+#: includes/class-health-check-site-status.php:1036
 msgid "UTF8MB4 is supported"
 msgstr "UTF8MB4 підтримується"
 
-#: includes/class-health-check-site-status.php:1633
+#: includes/class-health-check-site-status.php:1609
 msgid "Plugin or theme updates are not working"
 msgstr "Оновлення плагінів або тем не працює"
 
-#: includes/class-health-check-site-status.php:1610
+#: includes/class-health-check-site-status.php:1586
 msgid "Plugin and theme updates are working"
 msgstr "Оновлення плагінів і тем працюють нормально"
 
-#: includes/class-health-check-site-status.php:1641
+#: includes/class-health-check-site-status.php:1617
 msgid "Some plugin or theme updates may not work as expected"
 msgstr "Оновлення деяких плагінів або тем може працювати некоректно"
 
-#: includes/class-health-check-site-status.php:1618
+#: includes/class-health-check-site-status.php:1594
 msgid "Plugins or themes may have their own way of handling updates, which could break or negatively impact normal updates in WordPress."
 msgstr "Плагіни або теми можуть мати власний механізм оновлень, іноді він ламає або негативно впливає на звичайні оновлення WordPress."
 
@@ -469,165 +561,164 @@ msgid "Could not confirm that the %s filter is available."
 msgstr "Неможливо підтвердити доступність фільтра %s."
 
 #. translators: %d: The HTTP response code returned.
-#: includes/class-health-check-loopback.php:92
+#: includes/class-health-check-loopback.php:95
 msgid "The loopback request returned an unexpected http status code, %d, it was not possible to determine if this will prevent features from working as expected."
 msgstr "Петльовий запит повернув несподівану відповідь http - %d, було неможливо визначити наскільки це впливає на працездатність."
 
-#: includes/class-health-check-loopback.php:76
+#: includes/class-health-check-loopback.php:79
 msgid "The loopback request to your site failed, this means features relying on them are not currently working as expected."
 msgstr "Петльовий запит до вашого сайту не вдався, можливості, які залежать від його працездатності зараз не працюють як потрібно."
 
-#: includes/class-health-check.php:495
+#: includes/class-health-check.php:544
 msgid "Once weekly"
 msgstr "Раз в тиждень"
 
-#: includes/class-health-check.php:448
+#: includes/class-health-check.php:497
 msgid "Info"
 msgstr "Інформація"
 
-#: includes/class-health-check.php:339
+#: includes/class-health-check.php:385
 msgctxt "Page Title"
 msgid "Site Health"
 msgstr "Здоров'я сайту"
 
 #. translators: %s: Critical issue counter, if any.
-#: includes/class-health-check.php:331
+#: includes/class-health-check.php:377
 msgctxt "Menu Title"
 msgid "Site Health %s"
 msgstr "Здоров'я сайту %s"
 
-#: includes/class-health-check.php:324
+#: includes/class-health-check.php:370
 msgctxt "Issue counter label for the admin menu"
 msgid "Critical issues"
 msgstr "Критичні проблеми"
 
 #. translators: %s: Amount of critical issues.
-#: includes/class-health-check.php:214
+#: includes/class-health-check.php:238
 msgid "%s Critical issues"
 msgstr "%s критичних проблем"
 
-#. translators: %s: The percentage pass rate for the tests.
-#: includes/class-health-check.php:210
+#: includes/class-health-check.php:234
 msgid "Site information has been added to your clipboard."
 msgstr "Інформація про сайт скопійована в буфер обміну."
 
-#: includes/class-health-check.php:205
+#: includes/class-health-check.php:229
 msgid "All site health tests have finished running."
 msgstr "Всі тести перевірки здоров'я завершені."
 
 #. translators: 1: The name of the drop-in. 2: The name of the database engine.
-#: includes/class-health-check-site-status.php:1088
+#: includes/class-health-check-site-status.php:1011
 msgid "You are using a %1$s drop-in which might mean that a %2$s database is not being used."
 msgstr "У вас використовується вкраплення %1$s, що можливо означає те, що база даних %2$s не використовується."
 
 #. translators: 1: The database engine in use (MySQL or MariaDB). 2: Database
 #. server minimum version number.
-#: includes/class-health-check-site-status.php:1075
+#: includes/class-health-check-site-status.php:998
 msgid "WordPress requires %1$s version %2$s or higher. Contact your web hosting company to correct this."
 msgstr "WordPress вимагає %1$s версії %2$s або новіше. Зверніться в підтримку вашого хостингу для виправлення ситуації."
 
-#: includes/class-health-check-site-status.php:1068
+#: includes/class-health-check-site-status.php:991
 msgid "Severely outdated SQL server"
 msgstr "ПЗ СУБД дуже застаріло"
 
 #. translators: 1: The database engine in use (MySQL or MariaDB). 2: Database
 #. server recommended version number.
-#: includes/class-health-check-site-status.php:1058
+#: includes/class-health-check-site-status.php:981
 msgid "For optimal performance and security reasons, we recommend running %1$s version %2$s or higher. Contact your web hosting company to correct this."
 msgstr "З причин продуктивності і безпеки рекомендується використовувати %1$s версії %2$s або новіше. Зверніться в підтримку вашого хостингу для виправлення ситуації."
 
-#: includes/class-health-check-site-status.php:1052
+#: includes/class-health-check-site-status.php:975
 msgid "Outdated SQL server"
 msgstr "ПЗ СУБД застаріло"
 
-#: includes/class-health-check-site-status.php:1040
+#: includes/class-health-check-site-status.php:963
 msgid "Read more about what WordPress requires to run."
 msgstr "Дізнайтеся більше про те, що потрібно для роботи WordPress."
 
 #. translators: Localized version of WordPress requirements if one exists.
-#: includes/class-health-check-site-status.php:1039
+#: includes/class-health-check-site-status.php:962
 msgid "https://wordpress.org/about/requirements/"
 msgstr "https://uk.wordpress.org/about/requirements/"
 
-#: includes/class-health-check-site-status.php:1034
+#: includes/class-health-check-site-status.php:957
 msgid "The SQL server is a required piece of software for the database WordPress uses to store all your site&#8217;s content and settings."
 msgstr "SQL сервер &mdash; ПЗ що використовується WordPress для роботи з базою даних, в якій зберігається весь вміст сайту і його налаштування."
 
-#: includes/class-health-check-site-status.php:1026
+#: includes/class-health-check-site-status.php:949
 msgid "SQL server is up to date"
 msgstr "ПЗ СУБД актуальне"
 
-#: includes/class-health-check-site-status.php:1005
+#: includes/class-health-check-site-status.php:928
 msgid "One or more required modules are missing"
 msgstr "Одне або кілька необхідних розширень відсутні"
 
-#: includes/class-health-check-site-status.php:1002
+#: includes/class-health-check-site-status.php:925
 msgid "One or more recommended modules are missing"
 msgstr "Одне або кілька рекомендованих розширень відсутні"
 
-#: includes/class-health-check-files-integrity.php:137
-#: includes/class-health-check-site-status.php:963
-#: includes/class-health-check-site-status.php:1259
-#: includes/class-health-check-site-status.php:1573
-#: includes/class-health-check-site-status.php:1637
+#: includes/tools/class-health-check-files-integrity.php:152
+#: includes/class-health-check-site-status.php:886
+#: includes/class-health-check-site-status.php:1182
+#: includes/class-health-check-site-status.php:1549
+#: includes/class-health-check-site-status.php:1613
 msgid "Error"
 msgstr "Помилка"
 
-#: includes/class-health-check-site-status.php:840
+#: includes/class-health-check-site-status.php:753
 msgid "the team handbook"
 msgstr "цьому довіднику"
 
 #. translators: Localized team handbook, if one exists.
-#: includes/class-health-check-site-status.php:839
+#: includes/class-health-check-site-status.php:752
 msgid "https://make.wordpress.org/hosting/handbook/handbook/server-environment/#php-extensions"
 msgstr "https://make.wordpress.org/hosting/handbook/handbook/server-environment/#php-extensions"
 
 #. translators: %s: Link to the hosting group page about recommended PHP
 #. modules.
-#: includes/class-health-check-site-status.php:835
+#: includes/class-health-check-site-status.php:748
 msgid "The WordPress Hosting Team maintains a list of those modules, both recommended and required, in %s."
 msgstr "Команда хостингу WordPress підтримує списки необхідних і рекомендованих розширень в %s."
 
-#: includes/class-health-check-site-status.php:832
+#: includes/class-health-check-site-status.php:745
 msgid "PHP modules perform most of the tasks on the server that make your site run. Any changes to these must be made by your server administrator."
 msgstr "Розширення PHP виконують багато завдань на сервері для забезпечення роботи вашого сайту. Зазвичай будь-які зміни в них вносяться системним адміністратором сервера."
 
-#: includes/class-health-check-site-status.php:777
+#: includes/class-health-check-site-status.php:686
 msgid "Your PHP version requires an update"
 msgstr "Потрібне оновлення PHP"
 
-#: includes/class-health-check-site-status.php:770
+#: includes/class-health-check-site-status.php:679
 msgid "Your PHP version should be updated"
 msgstr "Ваша версія PHP повинна бути оновлена"
 
-#: includes/class-health-check-site-status.php:762
+#: includes/class-health-check-site-status.php:671
 msgid "We recommend that you update PHP"
 msgstr "Рекомендується оновити PHP"
 
 #. translators: accessibility text
-#: includes/class-health-check-site-status.php:750
-#: includes/class-health-check-site-status.php:842
-#: includes/class-health-check-site-status.php:1042
-#: includes/class-health-check-site-status.php:1275
-#: includes/class-health-check-site-status.php:1317
-#: includes/class-health-check-site-status.php:1390
+#: includes/class-health-check-site-status.php:659
+#: includes/class-health-check-site-status.php:755
+#: includes/class-health-check-site-status.php:965
+#: includes/class-health-check-site-status.php:1198
+#: includes/class-health-check-site-status.php:1282
+#: includes/class-health-check-site-status.php:1355
 msgid "(opens in a new tab)"
 msgstr "(відкриється у новій вкладці)"
 
-#: includes/class-health-check-site-status.php:748
+#: includes/class-health-check-site-status.php:657
 msgid "Learn more about updating PHP"
 msgstr "Дізнайтеся більше про оновлення PHP"
 
-#: includes/class-health-check-site-status.php:743
+#: includes/class-health-check-site-status.php:652
 msgid "PHP is the programming language we use to build and maintain WordPress. Newer versions of PHP are both faster and more secure, so updating will have a positive effect on your site&#8217;s performance."
 msgstr "PHP — мова програмування, на основі якої створено WordPress. Нові версії PHP і швидше і безпечніше, тому оновлення матиме позитивний ефект для продуктивності сайту."
 
 #. translators: %s: The current PHP version.
-#: includes/class-health-check-site-status.php:733
+#: includes/class-health-check-site-status.php:642
 msgid "PHP is up to date (%s)"
 msgstr "Версія PHP актуальна (%s)"
 
-#: includes/class-health-check-site-status.php:690
+#: includes/compat.php:75
 msgctxt "localized PHP upgrade information page"
 msgid "https://wordpress.org/support/update-php/"
 msgstr "https://uk.wordpress.org/support/update-php/"
@@ -757,14 +848,14 @@ msgstr "Є нове незначне оновлення версії WordPress �
 #: includes/class-health-check-site-status.php:195
 #: includes/class-health-check-site-status.php:274
 #: includes/class-health-check-site-status.php:409
-#: includes/class-health-check-site-status.php:779
-#: includes/class-health-check-site-status.php:1069
-#: includes/class-health-check-site-status.php:1231
-#: includes/class-health-check-site-status.php:1304
-#: includes/class-health-check-site-status.php:1377
-#: includes/class-health-check-site-status.php:1440
-#: includes/class-health-check-site-status.php:1547
-#: includes/class-health-check-site-status.php:1613
+#: includes/class-health-check-site-status.php:688
+#: includes/class-health-check-site-status.php:992
+#: includes/class-health-check-site-status.php:1154
+#: includes/class-health-check-site-status.php:1269
+#: includes/class-health-check-site-status.php:1342
+#: includes/class-health-check-site-status.php:1405
+#: includes/class-health-check-site-status.php:1523
+#: includes/class-health-check-site-status.php:1589
 msgid "Security"
 msgstr "Безпека"
 
@@ -795,44 +886,45 @@ msgid "WordPress version %s"
 msgstr "Версія WordPress %s"
 
 #: includes/class-health-check-site-status.php:134
-#: includes/class-health-check-site-status.php:738
-#: includes/class-health-check-site-status.php:827
-#: includes/class-health-check-site-status.php:1029
-#: includes/class-health-check-site-status.php:1116
-#: includes/class-health-check-site-status.php:1486
-#: includes/class-health-check-site-status.php:1683
-#: includes/class-health-check-site-status.php:1731
-#: includes/class-health-check-site-status.php:1802
+#: includes/class-health-check-site-status.php:647
+#: includes/class-health-check-site-status.php:740
+#: includes/class-health-check-site-status.php:952
+#: includes/class-health-check-site-status.php:1039
+#: includes/class-health-check-site-status.php:1224
+#: includes/class-health-check-site-status.php:1451
+#: includes/class-health-check-site-status.php:1659
+#: includes/class-health-check-site-status.php:1707
+#: includes/class-health-check-site-status.php:1778
 msgid "Performance"
 msgstr "Продуктивність"
 
-#: includes/class-health-check-site-status.php:971
-#: includes/class-health-check-site-status.php:1581
-#: includes/class-health-check-site-status.php:1645
+#: includes/class-health-check-site-status.php:894
+#: includes/class-health-check-site-status.php:1557
+#: includes/class-health-check-site-status.php:1621
 msgid "Warning"
 msgstr "Увага"
 
-#. translators: %s: number of items with no issues
 #. translators: %s: Amount of passed tests.
-#: pages/site-status.php:71 includes/class-health-check.php:220
+#. translators: %s: number of items with no issues
+#: includes/class-health-check.php:244 pages/site-status.php:71
 msgid "%s Item with no issues detected"
 msgid_plural "%s Items with no issues detected"
 msgstr[0] "Виявлено %s елемент без проблем"
 msgstr[1] "Виявлено %s елемента без проблем"
 msgstr[2] "Виявлено %s елементів без проблем"
 
-#. translators: %s: number of recommended improvements
 #. translators: %s: Amount of recommended issues.
-#: pages/site-status.php:52 includes/class-health-check.php:216
+#. translators: %s: number of recommended improvements
+#: includes/class-health-check.php:240 pages/site-status.php:52
 msgid "%s Recommended improvement"
 msgid_plural "%s Recommended improvements"
 msgstr[0] "%s рекомендоване поліпшення"
 msgstr[1] "%s рекомендованих поліпшення"
 msgstr[2] "%s рекомендованих поліпшень"
 
-#. translators: %s: number of critical issues found
 #. translators: %s: Amount of critical issues.
-#: pages/site-status.php:41 includes/class-health-check.php:212
+#. translators: %s: number of critical issues found
+#: includes/class-health-check.php:236 pages/site-status.php:41
 msgid "%s Critical issue"
 msgid_plural "%s Critical issues"
 msgstr[0] "%s критична проблема"
@@ -840,72 +932,63 @@ msgstr[1] "%s критичні проблеми"
 msgstr[2] "%s критичних проблем"
 
 #. translators: %d: The amount of notices that are visible.
-#: assets/mu-plugin/health-check-troubleshooting-mode.php:976
+#: assets/mu-plugin/health-check-troubleshooting-mode.php:1182
 msgid "Notices (%d)"
 msgstr "Сповіщень (%d)"
 
-#: assets/mu-plugin/health-check-troubleshooting-mode.php:718
+#: assets/mu-plugin/health-check-troubleshooting-mode.php:872
 msgctxt "Prefix for the active theme in troubleshooting mode"
 msgid "Active:"
 msgstr "Активна:"
 
-#: assets/mu-plugin/health-check-troubleshooting-mode.php:718
+#: assets/mu-plugin/health-check-troubleshooting-mode.php:872
 msgctxt "Prefix for inactive themes in troubleshooting mode"
 msgid "Switch to"
 msgstr "Перемкнутися на"
 
-#: includes/class-health-check.php:206
-msgid "Show options for copying this information"
-msgstr "Показати додаткові можливості копіювання цієї інформації"
-
-#: includes/class-health-check.php:207
-msgid "Hide options for copying this information"
-msgstr "Сховати додаткові можливості копіювання цієї інформації"
-
 #. translators: %s: Amount of passed tests.
-#: includes/class-health-check.php:222
+#: includes/class-health-check.php:246
 msgid "%s Items with no issues detected"
 msgstr "%s елементів без проблем"
 
 #. translators: %s: Amount of recommended issues.
-#: includes/class-health-check.php:218
+#: includes/class-health-check.php:242
 msgid "%s Recommended improvements"
 msgstr "%s рекомендованих поліпшень"
 
 #. translators: %d: The amount of available themes.
-#: assets/mu-plugin/health-check-troubleshooting-mode.php:917
+#: assets/mu-plugin/health-check-troubleshooting-mode.php:1104
 msgid "Available themes (%d)"
 msgstr "Встановлених тем (%d)"
 
 #. translators: %d: The amount of available plugins.
-#: assets/mu-plugin/health-check-troubleshooting-mode.php:844
+#: assets/mu-plugin/health-check-troubleshooting-mode.php:1008
 msgid "Available plugins (%d)"
 msgstr "Встановлених плагінів (%d)"
 
 #. translators: %s: The running status of Troubleshooting Mode.
-#: assets/mu-plugin/health-check-troubleshooting-mode.php:806
+#: assets/mu-plugin/health-check-troubleshooting-mode.php:966
 msgid "Troubleshooting Mode - %s"
 msgstr "Режим вирішення проблем - %s"
 
-#. translators: %s: The percentage pass rate for the tests.
-#: includes/class-health-check.php:209
-msgid "All site health tests have finished running. Your site passed %s, and the results are now available on the page."
-msgstr "Всі тести перевірки здоров'я сайту завершені. Ваш сайт успішно пройшов %s і результати доступні на сторінці."
-
-#: assets/mu-plugin/health-check-troubleshooting-mode.php:809
+#: assets/mu-plugin/health-check-troubleshooting-mode.php:969
 msgid "enabled"
 msgstr "увімкнений"
 
-#: includes/class-health-check-files-integrity.php:182
-#: includes/class-health-check-files-integrity.php:193
+#: includes/class-health-check.php:230
+msgid "All site health tests have finished running. Your site is looking good, and the results are now available on the page."
+msgstr "Всі тести перевірки здоров'я завершені. Все виглядає добре, результати доступні на сторінці."
+
+#: includes/tools/class-health-check-files-integrity.php:197
+#: includes/tools/class-health-check-files-integrity.php:206
 msgid "You do not have access to this file."
 msgstr "У вас немає доступу до цього файлу."
 
-#: includes/class-health-check-site-status.php:1948
+#: includes/class-health-check-site-status.php:1924
 msgid "HTTP Requests"
 msgstr "HTTP Запити"
 
-#: includes/class-health-check-debug-data.php:603
+#: includes/class-health-check-debug-data.php:624
 msgid "Unable to determine what web server software is used"
 msgstr "Неможливо визначити, яке програмне забезпечення веб-сервера використовується "
 
@@ -940,7 +1023,7 @@ msgid "Plugin update hooks have been removed."
 msgstr "Хуки оновлення плагінів видалено."
 
 #. translators: %s: The custom message that may be included with the email.
-#: includes/class-health-check-mail-check.php:61
+#: includes/tools/class-health-check-mail-check.php:70
 msgid "Additional message from admin: %s"
 msgstr "Додаткове повідомлення від адміністратора: %s"
 
@@ -950,100 +1033,100 @@ msgstr "Оновлення плагінів повинні працювати, �
 
 #. translators: %1$s: website name. %2$s: website url. %3$s: The date the
 #. message was sent. %4$s: The time the message was sent.
-#: includes/class-health-check-mail-check.php:50
+#: includes/tools/class-health-check-mail-check.php:59
 msgid "Hi! This test message was sent by the Health Check plugin from %1$s (%2$s) on %3$s at %4$s. Since you’re reading this, it obviously works."
 msgstr "Привіт! Це тестове повідомлення було надіслано плагіном Health Check %1$s (%2$s) на %3$s у%4$s. Оскільки ви читаєте його, воно, очевидно, працює."
 
-#: includes/class-health-check-site-status.php:1928
+#: includes/class-health-check-site-status.php:1904
 msgid "PHP Extensions"
 msgstr "PHP розширення"
 
-#: includes/class-health-check-debug-data.php:579
+#: includes/class-health-check-debug-data.php:584
 msgid "(Does not support 64bit values)"
 msgstr "(64-бітні значення не підтримуються)"
 
 #. translators: %s: the name of the query parameter being tested.
-#: includes/class-health-check-site-status.php:1881
+#: includes/class-health-check-site-status.php:1857
 msgid "The REST API did not process the %s query parameter correctly."
 msgstr "REST API не зміг коректно обробити параметр запиту %s."
 
-#: includes/class-health-check-site-status.php:1728
+#: includes/class-health-check-site-status.php:1704
 msgid "HTTP requests seem to be working as expected"
 msgstr "HTTP запити працюють"
 
-#: includes/class-health-check-site-status.php:824
+#: includes/class-health-check-site-status.php:737
 msgid "Required and recommended modules are installed"
 msgstr "Необхідні і рекомендовані розширення встановлені"
 
 #. translators: %s: The module name.
-#: includes/class-health-check-site-status.php:974
+#: includes/class-health-check-site-status.php:897
 msgid "The optional module, %s, is not installed, or has been disabled."
 msgstr "Рекомендоване розширення %s не встановлене або вимкнене."
 
-#: includes/class-health-check-site-status.php:1975
+#: includes/class-health-check-site-status.php:1955
 msgid "REST API availability"
 msgstr "Доступність REST API"
 
 #. translators: 1: The HTTP response code returned. 2: The error message
 #. returned.
-#: includes/class-health-check-site-status.php:1864
+#: includes/class-health-check-site-status.php:1840
 msgid "The REST API call gave the following unexpected result: (%1$d) %2$s."
 msgstr "Виклик API REST дав такий несподіваний результат: (%1$d) %2$s."
 
-#: includes/class-health-check-site-status.php:1846
+#: includes/class-health-check-site-status.php:1822
 msgid "The REST API request failed due to an error."
 msgstr "Запит API REST не виконано через помилку."
 
-#: includes/class-health-check-site-status.php:1799
+#: includes/class-health-check-site-status.php:1775
 msgid "The REST API is available"
 msgstr "REST API доступний"
 
-#: includes/class-health-check-site-status.php:1912
+#: includes/class-health-check-site-status.php:1888
 msgid "Plugin Versions"
 msgstr "Версії плагінів"
 
-#: includes/class-health-check.php:204
+#: includes/class-health-check.php:228
 msgid "Currently being tested..."
 msgstr "В даний час тестується ..."
 
 #. translators: %s: The active theme name.
-#: includes/class-health-check-loopback.php:193
+#: includes/class-health-check-loopback.php:196
 msgid "Active theme: %s"
 msgstr "Активна тема: %s"
 
-#: includes/class-health-check-loopback.php:185
-#: includes/class-health-check-loopback.php:196
+#: includes/class-health-check-loopback.php:188
+#: includes/class-health-check-loopback.php:199
 msgid "Waiting..."
 msgstr "Чекайте ..."
 
-#: assets/mu-plugin/health-check-troubleshooting-mode.php:946
+#: assets/mu-plugin/health-check-troubleshooting-mode.php:1139
 msgid "Switch to this theme"
 msgstr "Перейти до цієї теми"
 
 #. translators: %s: Theme name.
-#: assets/mu-plugin/health-check-troubleshooting-mode.php:942
+#: assets/mu-plugin/health-check-troubleshooting-mode.php:1135
 msgid "Switch the active theme to %s"
 msgstr "Переключити активну тему на %s"
 
-#: assets/mu-plugin/health-check-troubleshooting-mode.php:896
+#: assets/mu-plugin/health-check-troubleshooting-mode.php:1070
 msgid "Enable"
 msgstr "Ввiмкнути"
 
-#: assets/mu-plugin/health-check-troubleshooting-mode.php:881
+#: assets/mu-plugin/health-check-troubleshooting-mode.php:1051
 msgid "Disable"
 msgstr "Вимкнути"
 
-#: assets/mu-plugin/health-check-troubleshooting-mode.php:1018
+#: assets/mu-plugin/health-check-troubleshooting-mode.php:1228
 msgid "Dismiss notices"
 msgstr "Відхилити повідомлення"
 
 #. translators: %s: Plugin name.
-#: assets/mu-plugin/health-check-troubleshooting-mode.php:892
+#: assets/mu-plugin/health-check-troubleshooting-mode.php:1066
 msgid "Enable the plugin, %s, while troubleshooting."
 msgstr "Увімкніть плагін, %s, під час усунення несправностей."
 
 #. translators: %s: Plugin name.
-#: assets/mu-plugin/health-check-troubleshooting-mode.php:877
+#: assets/mu-plugin/health-check-troubleshooting-mode.php:1047
 msgid "Disable the plugin, %s, while troubleshooting."
 msgstr "Вимкніть плагін, %s, під час усунення неполадок."
 
@@ -1051,24 +1134,24 @@ msgstr "Вимкніть плагін, %s, під час усунення неп
 msgid "You have successfully enabled Troubleshooting Mode, all plugins will appear inactive until you disable Troubleshooting Mode, or log out and back in again."
 msgstr "Ви успішно ввімкнули режим усунення неполадок, всі плагіни з'являться неактивними, поки ви не вимкнете режим усунення несправностей, або вийдете з системи і знову знову."
 
-#: assets/mu-plugin/health-check-troubleshooting-mode.php:996
+#: assets/mu-plugin/health-check-troubleshooting-mode.php:1202
 msgid "Plugin actions, such as activating and deactivating, are not available while in Troubleshooting Mode."
 msgstr "Дії плагінів, такі як активація та деактивація, недоступні в режимі усунення неполадок."
 
-#: includes/class-health-check-site-status.php:1924
+#: includes/class-health-check-site-status.php:1900
 msgid "Database Server version"
 msgstr "Версія ПЗ СУБД"
 
-#: includes/class-health-check-site-status.php:1916
+#: includes/class-health-check-site-status.php:1892
 msgid "Theme Versions"
 msgstr "Версії тем"
 
-#: includes/class-health-check-site-status.php:1908
+#: includes/class-health-check-site-status.php:1884
 msgid "WordPress Version"
 msgstr "Версія WordPress"
 
 #. translators: %s: URL to Settings > General to change options.
-#: includes/class-health-check-site-status.php:1408
+#: includes/class-health-check-site-status.php:1373
 msgid "You are accessing this website using HTTPS, but your <a href=\"%s\">WordPress Address</a> is not set up to use HTTPS by default."
 msgstr "Ви зайшли на сайт по HTTPS, але <a href=\"%s\">адресу WordPress</a> не встановлено для використання HTTPS за замовчуванням."
 
@@ -1108,7 +1191,7 @@ msgstr[0] "На сайті %d активний плагін в актуальн�
 msgstr[1] "На сайті %d активних плагіна і вони актуальні."
 msgstr[2] "На сайті %d активних плагінів і вони актуальні."
 
-#: assets/mu-plugin/health-check-troubleshooting-mode.php:988
+#: assets/mu-plugin/health-check-troubleshooting-mode.php:1194
 msgid "There are no notices to show."
 msgstr "Нотаток немає."
 
@@ -1117,21 +1200,21 @@ msgid "Health Check & Troubleshooting"
 msgstr "Health Check & Troubleshooting"
 
 #. translators: %s: The plugin slug that was disabled.
-#: assets/mu-plugin/health-check-troubleshooting-mode.php:551
+#: assets/mu-plugin/health-check-troubleshooting-mode.php:687
 msgid "When disabling the plugin, %s, a site failure occurred. Because of this the change was automatically reverted."
 msgstr "При відключенні плагіну %s виникла помилка сайту. Ця зміна була автоматично скасована."
 
 #. translators: %s: The plugin slug that was enabled.
-#: assets/mu-plugin/health-check-troubleshooting-mode.php:525
+#: assets/mu-plugin/health-check-troubleshooting-mode.php:661
 msgid "When enabling the plugin, %s, a site failure occurred. Because of this the change was automatically reverted."
 msgstr "При включенні плагіну %s виникла помилка сайту. Ця зміна була автоматично скасована."
 
 #. translators: %s: The theme slug that was switched to.
-#: assets/mu-plugin/health-check-troubleshooting-mode.php:574
+#: assets/mu-plugin/health-check-troubleshooting-mode.php:710
 msgid "When switching the active theme to %s, a site failure occurred. Because of this we reverted the theme to the one you used previously."
 msgstr "При зміні активної теми на %s виникла помилка сайту. Ця зміна була автоматично скасована."
 
-#: includes/class-health-check-mail-check.php:117
+#: includes/tools/class-health-check-mail-check.php:118
 msgid "Additional message"
 msgstr "Додаткове повідомлення"
 
@@ -1139,42 +1222,42 @@ msgstr "Додаткове повідомлення"
 msgid "We could not remove the old must-use plugin."
 msgstr "Не вийшло видалити старий необхідний (MU) плагін."
 
-#: includes/class-health-check-mail-check.php:123
+#: includes/tools/class-health-check-mail-check.php:124
 msgid "Send test mail"
 msgstr "Послати тестове повідомлення"
 
-#: includes/class-health-check-debug-data.php:449
+#: includes/class-health-check-debug-data.php:454
 msgid "Database size"
 msgstr "Розмір бази даних"
 
-#: includes/class-health-check-debug-data.php:468
-#: includes/class-health-check-debug-data.php:490
-#: includes/class-health-check-debug-data.php:1289
+#: includes/class-health-check-debug-data.php:473
+#: includes/class-health-check-debug-data.php:495
+#: includes/class-health-check-debug-data.php:1383
 msgid "Not available"
 msgstr "Недоступно"
 
 #. translators: Prefix for the active theme in a listing.
-#: assets/mu-plugin/health-check-troubleshooting-mode.php:952
+#: assets/mu-plugin/health-check-troubleshooting-mode.php:1145
 msgid "Active:"
 msgstr "Активний:"
 
-#: assets/mu-plugin/health-check-troubleshooting-mode.php:703
+#: assets/mu-plugin/health-check-troubleshooting-mode.php:856
 msgid "Themes"
 msgstr "Теми"
 
-#: includes/class-health-check-debug-data.php:454
+#: includes/class-health-check-debug-data.php:459
 msgid "Total installation size"
 msgstr "Повний розмір встановлення"
 
-#: includes/class-health-check-debug-data.php:695
+#: includes/class-health-check-debug-data.php:743
 msgid "Your .htaccess file contains only core WordPress features."
 msgstr "Файл .htaccess містить тільки основні правила WordPress."
 
-#: includes/class-health-check-debug-data.php:695
+#: includes/class-health-check-debug-data.php:743
 msgid "Custom rules have been added to your .htaccess file."
 msgstr "Користувацькі правила були додані в файл .htaccess"
 
-#: includes/class-health-check-debug-data.php:694
+#: includes/class-health-check-debug-data.php:742
 msgid ".htaccess rules"
 msgstr "Правила .htaccess"
 
@@ -1182,181 +1265,185 @@ msgstr "Правила .htaccess"
 #. translators: %s: Latest plugin version number.
 #. translators: %s: Latest theme version number.
 #: includes/class-health-check-debug-data.php:62
-#: includes/class-health-check-debug-data.php:847
-#: includes/class-health-check-debug-data.php:879
-#: includes/class-health-check-debug-data.php:960
+#: includes/class-health-check-debug-data.php:880
+#: includes/class-health-check-debug-data.php:912
+#: includes/class-health-check-debug-data.php:970
+#: includes/class-health-check-debug-data.php:1054
 msgid "(Latest version: %s)"
 msgstr "(Остання версія: %s)"
 
 #. translators: %s: website url.
-#: includes/class-health-check-mail-check.php:46
+#: includes/tools/class-health-check-mail-check.php:55
 msgid "Health Check – Test Message from %s"
 msgstr "Health Check – тестове повідомлення від %s"
 
-#: includes/class-health-check-files-integrity.php:206
+#: includes/tools/class-health-check-files-integrity.php:219
 msgid "Modified"
 msgstr "Змінений"
 
-#: includes/class-health-check-files-integrity.php:204
+#: includes/tools/class-health-check-files-integrity.php:217
 msgid "Original"
 msgstr "Оригінал"
 
-#: includes/class-health-check-mail-check.php:101
+#: includes/tools/class-health-check-mail-check.php:21
 msgid "The Mail Check will invoke the <code>wp_mail()</code> function and check if it succeeds. We will use the E-mail address you have set up, but you can change it below if you like."
 msgstr "Перевірка пошти викликає функцію <code>wp_mail()</code> і перевіряє, чи вона успішно. Ми будемо використовувати встановлену Вами адресу E-mail, але ви можете змінити її нижче, якщо хочете."
 
-#: includes/class-health-check-mail-check.php:111
-msgid "E-mail"
-msgstr "E-mail"
-
-#: includes/class-health-check-mail-check.php:135
+#: includes/tools/class-health-check-mail-check.php:20
 msgid "Mail Check"
 msgstr "Перевірка пошти"
 
-#: includes/class-health-check-files-integrity.php:248
-msgid "File Integrity"
+#: includes/tools/class-health-check-files-integrity.php:20
+msgid "File integrity"
 msgstr "Цілісність файлів"
 
-#: includes/class-health-check-files-integrity.php:235
+#: includes/tools/class-health-check-files-integrity.php:240
 msgid "Check the Files Integrity"
 msgstr "Перевіртка Цілісність файлів"
 
-#: includes/class-health-check-files-integrity.php:127
-#: includes/class-health-check-files-integrity.php:133
+#: includes/tools/class-health-check-mail-check.php:112
+msgid "Email"
+msgstr "Email"
+
+#: includes/tools/class-health-check-files-integrity.php:142
+#: includes/tools/class-health-check-files-integrity.php:148
 msgid "Reason"
 msgstr "Причина"
 
-#: includes/class-health-check-files-integrity.php:125
-#: includes/class-health-check-files-integrity.php:131
+#: includes/tools/class-health-check-files-integrity.php:140
+#: includes/tools/class-health-check-files-integrity.php:146
 msgid "File"
 msgstr "Файл"
 
-#: includes/class-health-check.php:447
-#: includes/class-health-check-files-integrity.php:123
-#: includes/class-health-check-files-integrity.php:129
+#: includes/class-health-check.php:496
+#: includes/tools/class-health-check-files-integrity.php:138
+#: includes/tools/class-health-check-files-integrity.php:144
 msgid "Status"
 msgstr "Статус"
 
-#: includes/class-health-check-files-integrity.php:89
+#: includes/tools/class-health-check-files-integrity.php:104
 msgid "(View Diff)"
 msgstr "(Переглянути Diff)"
 
-#: includes/class-health-check-files-integrity.php:89
+#: includes/tools/class-health-check-files-integrity.php:104
 msgid "Content changed"
 msgstr "Вміст змінено"
 
-#: pages/tools.php:16 includes/class-health-check.php:450
+#: includes/class-health-check.php:499 pages/tools.php:16
 msgid "Tools"
 msgstr "Інструменти"
 
-#: includes/class-health-check-files-integrity.php:120
+#: includes/tools/class-health-check-files-integrity.php:135
 msgid "It appears as if some files may have been modified."
 msgstr "Здається, що деякі файли можуть бути змінені."
 
-#: includes/class-health-check-files-integrity.php:116
+#: includes/tools/class-health-check-files-integrity.php:131
 msgid "All files passed the check. Everything seems to be ok!"
 msgstr "Всі файли пройшли чек. Все, здається, добре!"
 
-#: includes/class-health-check-files-integrity.php:92
+#: includes/tools/class-health-check-files-integrity.php:107
 msgid "File not found"
 msgstr "Файл не знайдено"
 
-#: assets/mu-plugin/health-check-troubleshooting-mode.php:139
+#: assets/mu-plugin/health-check-troubleshooting-mode.php:166
 msgid "Install a default theme"
 msgstr "Встановити тему за умовчанням"
 
-#: includes/class-health-check-mail-check.php:74
+#: includes/tools/class-health-check-mail-check.php:83
 msgid "It seems there was a problem sending the e-mail."
 msgstr "Схоже, виникла проблема з надсиланням e-mail."
 
-#: assets/mu-plugin/health-check-troubleshooting-mode.php:736
-#: assets/mu-plugin/health-check-troubleshooting-mode.php:821
+#: assets/mu-plugin/health-check-troubleshooting-mode.php:893
+#: assets/mu-plugin/health-check-troubleshooting-mode.php:985
 #: includes/class-health-check-troubleshoot.php:244
 msgid "Disable Troubleshooting Mode"
 msgstr "Вимкнути режим Усунення Неполадок"
 
-#: includes/class-health-check-debug-data.php:655
-#: includes/class-health-check-debug-data.php:660
+#: includes/class-health-check-debug-data.php:676
+#: includes/class-health-check-debug-data.php:681
 msgid "cURL version"
 msgstr "Версія cURL"
 
-#: includes/class-health-check-loopback.php:168
+#: includes/class-health-check-loopback.php:171
 msgid "Result from testing without any plugins active and a default theme"
 msgstr "Результати тестування без активних плагінів і з темою за замовчуванням"
 
-#: assets/mu-plugin/health-check-troubleshooting-mode.php:134
+#: assets/mu-plugin/health-check-troubleshooting-mode.php:157
 msgid "You don't have any of the default themes installed. A default theme helps you determine if your current theme is causing conflicts."
 msgstr "У вас немає встановлених тем за замовчуванням. Тема за замовчуванням допомагає визначити чи є ваша поточна тема джерелом проблеми."
 
 #. Translators: %s: Plugin slug.
-#: assets/mu-plugin/health-check-troubleshooting-mode.php:678
+#: assets/mu-plugin/health-check-troubleshooting-mode.php:826
 msgid "Enable %s"
 msgstr "Увімкнути %s "
 
 #. Translators: %s: Plugin slug.
-#: assets/mu-plugin/health-check-troubleshooting-mode.php:665
+#: assets/mu-plugin/health-check-troubleshooting-mode.php:811
 msgid "Disable %s"
 msgstr "Вимкнути %s"
 
-#: assets/mu-plugin/health-check-troubleshooting-mode.php:633
+#: assets/mu-plugin/health-check-troubleshooting-mode.php:772
 msgid "Manage active plugins"
 msgstr "Керуйте активними плагінами"
 
-#: includes/class-health-check.php:361
+#: includes/class-health-check.php:451
 msgctxt "Menu, Section and Page Title"
 msgid "Health Check"
 msgstr "Перевірка здоров'я"
 
-#: assets/mu-plugin/health-check-troubleshooting-mode.php:242
+#: assets/mu-plugin/health-check-troubleshooting-mode.php:311
+#: assets/mu-plugin/health-check-troubleshooting-mode.php:373
 msgid "Disable while troubleshooting"
 msgstr "Вимкніть під час усунення неполадок"
 
-#: assets/mu-plugin/health-check-troubleshooting-mode.php:250
+#: assets/mu-plugin/health-check-troubleshooting-mode.php:310
+#: assets/mu-plugin/health-check-troubleshooting-mode.php:386
 msgid "Enable while troubleshooting"
 msgstr "Включити в режимі вирішення проблем"
 
 #. translators: %1$d: The HTTP response code. %2$s: The error message returned.
-#: includes/class-health-check-loopback.php:79
+#: includes/class-health-check-loopback.php:82
 msgid "Error encountered: (%1$d) %2$s"
 msgstr "Виникла помилка: (%1$d) %2$s "
 
-#: includes/class-health-check-debug-data.php:480
+#: includes/class-health-check-debug-data.php:485
 msgid "Active editor"
 msgstr "Активний редактор"
 
-#: includes/class-health-check.php:402
+#: assets/mu-plugin/health-check-troubleshooting-mode.php:304
+#: includes/class-health-check.php:433
 msgid "Troubleshoot"
 msgstr "Усунення несправностей"
 
-#: includes/class-health-check-debug-data.php:638
+#: includes/class-health-check-debug-data.php:659
 msgid "Max input time"
 msgstr "Max input time"
 
-#: includes/class-health-check-debug-data.php:554
+#: includes/class-health-check-debug-data.php:559
 msgid "Unable to determine if Ghostscript is installed"
 msgstr "Неможливо визначити чи встановлено Ghostscript"
 
-#: includes/class-health-check-debug-data.php:524
+#: includes/class-health-check-debug-data.php:529
 msgid "Imagick Resource Limits"
 msgstr "Imagick ліміти ресурсів"
 
-#: includes/class-health-check-debug-data.php:768
+#: includes/class-health-check-debug-data.php:801
 msgid "Database name"
 msgstr "Назва бази даних"
 
-#: includes/class-health-check-debug-data.php:559
+#: includes/class-health-check-debug-data.php:564
 msgid "Ghostscript version"
 msgstr "Версія Ghostscript"
 
-#: includes/class-health-check-debug-data.php:538
+#: includes/class-health-check-debug-data.php:543
 msgid "GD version"
 msgstr "Версія GD"
 
-#: includes/class-health-check-debug-data.php:169
+#: includes/class-health-check-debug-data.php:174
 msgid "Media Handling"
 msgstr "Обробка мультимедіа"
 
-#: includes/class-health-check.php:203
+#: includes/class-health-check.php:227
 msgid "Copied"
 msgstr "Скопійовано"
 
@@ -1364,7 +1451,7 @@ msgstr "Скопійовано"
 msgid "When troubleshooting issues on your site, you are likely to be told to disable all plugins and switch to the default theme."
 msgstr "При вирішенні проблем на сайті, швидше за все вам рекомендували відключити всі плагіни і перейти на тему за замовчуванням."
 
-#: assets/mu-plugin/health-check-troubleshooting-mode.php:625
+#: assets/mu-plugin/health-check-troubleshooting-mode.php:762
 msgid "Troubleshooting Mode"
 msgstr "Режим Усунення Неполадок"
 
@@ -1376,7 +1463,7 @@ msgstr "Включити режим вирішення проблем"
 msgid "Return to the Dashboard"
 msgstr "Повернутися в майстерню"
 
-#: assets/mu-plugin/health-check-troubleshooting-mode.php:640
+#: assets/mu-plugin/health-check-troubleshooting-mode.php:781
 msgid "Plugins"
 msgstr "Плагіни"
 
@@ -1384,7 +1471,7 @@ msgstr "Плагіни"
 msgid "We were unable to replace the plugin file required to enable the Troubleshooting Mode."
 msgstr "Ми не змогли замінити файл плагіну, що потребується для режиму усунення неполадок."
 
-#: includes/class-health-check.php:202
+#: includes/class-health-check.php:226
 msgid "Please wait..."
 msgstr "Будь ласка, зачекайте ..."
 
@@ -1400,7 +1487,7 @@ msgstr "Ми не змогли скопіювати файл плагіну не
 msgid "Understandably, you do not wish to do so as it may affect your site visitors, leaving them with lost functionality."
 msgstr "Зрозуміло, що вам не хочеться цього робити, так як це зачепить відвідувачів і порушить функціональність сайту."
 
-#: includes/class-health-check.php:449
+#: includes/class-health-check.php:498
 msgid "Troubleshooting"
 msgstr "Усунення неполадок"
 
@@ -1408,39 +1495,39 @@ msgstr "Усунення неполадок"
 msgid "Please note, that due to how Must Use plugins work, any such plugin will not be disabled for the troubleshooting session."
 msgstr "Зверніть увагу: необхідні (MU) плагіни не можуть бути відключені для сесії рішення проблем."
 
-#: includes/class-health-check-loopback.php:100
+#: includes/class-health-check-loopback.php:103
 msgid "The loopback request to your site completed successfully."
 msgstr "Петлевий запит до вашого сайту успішний."
 
-#: includes/class-health-check-site-status.php:1966
+#: includes/class-health-check-site-status.php:1946
 msgid "Loopback request"
 msgstr "Петлевой запит"
 
-#: includes/class-health-check-site-status.php:1944
+#: includes/class-health-check-site-status.php:1920
 msgid "Scheduled events"
 msgstr "Заплановані події"
 
-#: includes/class-health-check-site-status.php:1962
+#: includes/class-health-check-site-status.php:1942
 msgid "Background updates"
 msgstr "Фонові оновлення"
 
-#: includes/class-health-check-site-status.php:1940
+#: includes/class-health-check-site-status.php:1916
 msgid "Secure communication"
 msgstr "Безпечне спілкування"
 
 #. translators: %s: Plugin version number.
 #. translators: %s: Theme version number.
-#: includes/class-health-check-debug-data.php:802
-#: includes/class-health-check-debug-data.php:840
-#: includes/class-health-check-debug-data.php:953
+#: includes/class-health-check-debug-data.php:835
+#: includes/class-health-check-debug-data.php:873
+#: includes/class-health-check-debug-data.php:1047
 msgid "Version %s"
 msgstr "Версія %s"
 
 #. translators: %s: Plugin author name.
 #. translators: %s: Theme author name.
-#: includes/class-health-check-debug-data.php:796
-#: includes/class-health-check-debug-data.php:834
-#: includes/class-health-check-debug-data.php:947
+#: includes/class-health-check-debug-data.php:829
+#: includes/class-health-check-debug-data.php:867
+#: includes/class-health-check-debug-data.php:1041
 msgid "By %s"
 msgstr "Від %s"
 
@@ -1471,7 +1558,7 @@ msgstr "Оновлення WordPress для розробки блокуютьс�
 msgid "We'll try again with the next release."
 msgstr "Ми спробуємо знову з наступним випуском."
 
-#: includes/class-health-check-wp-cron.php:56
+#: includes/class-health-check-wp-cron.php:67
 msgid "No scheduled events exist on this site."
 msgstr "Запланованих подій на цьому сайті немає."
 
@@ -1553,51 +1640,54 @@ msgstr "Плагін запобігає оновленням відключен�
 msgid "The %s constant is defined and enabled."
 msgstr "%s константа визначена і увімкнена."
 
-#: includes/class-health-check-debug-data.php:579
+#: includes/class-health-check-debug-data.php:584
 msgid "(Supports 64bit values)"
 msgstr "(Підтримує 64-бітні значення)"
 
 #. translators: %s: The name of the failed cron event.
-#: includes/class-health-check-site-status.php:1522
+#: includes/class-health-check-site-status.php:1486
 msgid "The scheduled event, %s, failed to run. Your site still works, but this may indicate that scheduling posts or automated updates may not work as intended."
 msgstr "Заплановане завдання %s було пропущено. Ваш сайт все ще працює, але можливо є проблеми з автоматичним оновленням або відкладеною публікацією записів."
 
-#: includes/class-health-check-debug-data.php:786
-#: includes/class-health-check-debug-data.php:824
-#: includes/class-health-check-debug-data.php:937
+#: includes/class-health-check-debug-data.php:819
+#: includes/class-health-check-debug-data.php:857
+#: includes/class-health-check-debug-data.php:1031
 msgid "No version or author information is available."
 msgstr "Немає даних про версії або автора."
 
 #: includes/class-health-check-debug-data.php:104
 #: includes/class-health-check-debug-data.php:109
 #: includes/class-health-check-debug-data.php:119
-#: includes/class-health-check-debug-data.php:671
-#: includes/class-health-check-debug-data.php:680
+#: includes/class-health-check-debug-data.php:692
+#: includes/class-health-check-debug-data.php:701
 msgid "No"
 msgstr "Ні"
 
 #: includes/class-health-check-debug-data.php:104
 #: includes/class-health-check-debug-data.php:109
 #: includes/class-health-check-debug-data.php:119
-#: includes/class-health-check-debug-data.php:671
-#: includes/class-health-check-debug-data.php:680
+#: includes/class-health-check-debug-data.php:692
+#: includes/class-health-check-debug-data.php:701
 msgid "Yes"
 msgstr "Так"
 
-#: includes/class-health-check-debug-data.php:612
+#: includes/class-health-check-debug-data.php:633
 msgid "PHP SAPI"
 msgstr "PHP SAPI"
 
-#: includes/class-health-check-site-status.php:1920
+#: includes/class-health-check-site-status.php:1896
 msgid "PHP Version"
 msgstr "Версія PHP"
 
+#. translators: 1: Parent theme name. 2: Parent theme slug.
 #. translators: 1: Theme name. 2: Theme slug.
-#: includes/class-health-check-debug-data.php:968
+#: includes/class-health-check-debug-data.php:923
+#: includes/class-health-check-debug-data.php:981
+#: includes/class-health-check-debug-data.php:1062
 msgid "%1$s (%2$s)"
 msgstr "%1$s (%2$s)"
 
-#: includes/class-health-check-site-status.php:1936
+#: includes/class-health-check-site-status.php:1912
 msgid "HTTPS status"
 msgstr "Статус HTTPS"
 
@@ -1605,8 +1695,10 @@ msgstr "Статус HTTPS"
 msgid "Home URL"
 msgstr "Домашня сторінка URL"
 
+#: includes/tools/class-health-check-plugin-compatibility.php:24
 #: includes/class-health-check-debug-data.php:75
-#: includes/class-health-check-debug-data.php:892
+#: includes/class-health-check-debug-data.php:930
+#: includes/class-health-check-debug-data.php:988
 msgid "Version"
 msgstr "Версія"
 
@@ -1614,19 +1706,19 @@ msgstr "Версія"
 msgid "WordPress"
 msgstr "WordPress"
 
-#: includes/class-health-check-debug-data.php:151
+#: includes/class-health-check-debug-data.php:156
 msgid "Must Use Plugins"
 msgstr "Необхідні плагіни"
 
-#: includes/class-health-check-debug-data.php:174
+#: includes/class-health-check-debug-data.php:179
 msgid "Server"
 msgstr "Сервер"
 
-#: includes/class-health-check-debug-data.php:163
+#: includes/class-health-check-debug-data.php:168
 msgid "Inactive Plugins"
 msgstr "Неактивні плагіни"
 
-#: includes/class-health-check-debug-data.php:157
+#: includes/class-health-check-debug-data.php:162
 msgid "Active Plugins"
 msgstr "Активні плагіни"
 
@@ -1642,171 +1734,171 @@ msgstr "Цей сайт використовує HTTPS?"
 msgid "Site URL"
 msgstr "Адреса сайту"
 
-#: includes/class-health-check-debug-data.php:198
-#: includes/class-health-check-debug-data.php:207
-#: includes/class-health-check-debug-data.php:216
-#: includes/class-health-check-debug-data.php:225
-#: includes/class-health-check-debug-data.php:240
+#: includes/class-health-check-debug-data.php:203
+#: includes/class-health-check-debug-data.php:212
+#: includes/class-health-check-debug-data.php:221
+#: includes/class-health-check-debug-data.php:230
 #: includes/class-health-check-debug-data.php:245
-#: includes/class-health-check-debug-data.php:903
+#: includes/class-health-check-debug-data.php:250
+#: includes/class-health-check-debug-data.php:941
+#: includes/class-health-check-debug-data.php:999
 msgid "Undefined"
 msgstr "Не визначено"
 
-#: includes/class-health-check-debug-data.php:180
+#: includes/class-health-check-debug-data.php:185
 msgid "Database"
 msgstr "База даних"
 
-#: includes/class-health-check-debug-data.php:230
+#: includes/class-health-check-debug-data.php:235
 msgid "WordPress Constants"
 msgstr "Константи WordPress"
 
-#: includes/class-health-check-debug-data.php:391
+#: includes/class-health-check-debug-data.php:396
 msgid "WordPress.org is reachable"
 msgstr "WordPress.org доступний"
 
-#: includes/class-health-check-site-status.php:1958
-#: includes/class-health-check-debug-data.php:390
-#: includes/class-health-check-debug-data.php:396
+#: includes/class-health-check-site-status.php:1938
+#: includes/class-health-check-debug-data.php:395
+#: includes/class-health-check-debug-data.php:401
 msgid "Communication with WordPress.org"
 msgstr "Зв'язок з WordPress.org"
 
-#: includes/class-health-check-debug-data.php:902
+#: includes/class-health-check-debug-data.php:940
+#: includes/class-health-check-debug-data.php:998
 msgid "Author website"
 msgstr "Сайт автора"
 
-#: includes/class-health-check-debug-data.php:897
+#: includes/class-health-check-debug-data.php:935
+#: includes/class-health-check-debug-data.php:993
 msgid "Author"
 msgstr "Автор"
 
-#: includes/class-health-check-debug-data.php:887
+#: includes/class-health-check-debug-data.php:920
+#: includes/class-health-check-debug-data.php:978
 msgid "Name"
 msgstr "Назва"
 
-#: includes/class-health-check-debug-data.php:762
+#: includes/class-health-check-debug-data.php:795
 msgid "Database host"
 msgstr "Сервер бази даних"
 
-#: includes/class-health-check-debug-data.php:751
+#: includes/class-health-check-debug-data.php:784
 msgid "Client version"
 msgstr "Версія клієнта"
 
-#: includes/class-health-check-debug-data.php:741
+#: includes/class-health-check-debug-data.php:774
 msgid "Extension"
 msgstr "Розширення"
 
-#: includes/class-health-check-debug-data.php:907
+#: includes/class-health-check-debug-data.php:945
 msgid "Parent theme"
 msgstr "Батьківська тема"
 
-#: includes/class-health-check-debug-data.php:613
+#: includes/class-health-check-debug-data.php:634
 msgid "Unable to determine PHP SAPI"
 msgstr "Неможливо визначити PHP SAPI"
 
-#: includes/class-health-check-debug-data.php:586
+#: includes/class-health-check-debug-data.php:591
 msgid "Unable to determine PHP version"
 msgstr "Неможливо визначити версію PHP"
 
-#: includes/class-health-check-debug-data.php:598
+#: includes/class-health-check-debug-data.php:613
 msgid "Unable to determine server architecture"
 msgstr "Неможливо визначити архітектуру сервера"
 
-#: includes/class-health-check-site-status.php:1932
+#: includes/class-health-check-site-status.php:1908
 msgid "MySQL utf8mb4 support"
 msgstr "MySQL підтримка кодування utf8mb4"
 
 #. translators: 1: Plugin version number. 2: Plugin author name.
 #. translators: 1: Theme version number. 2: Theme author name.
-#: includes/class-health-check-debug-data.php:791
-#: includes/class-health-check-debug-data.php:829
-#: includes/class-health-check-debug-data.php:942
+#: includes/class-health-check-debug-data.php:824
+#: includes/class-health-check-debug-data.php:862
+#: includes/class-health-check-debug-data.php:1036
 msgid "Version %1$s by %2$s"
 msgstr "Версія %1$s Від автора %2$s"
 
-#: includes/class-health-check-debug-data.php:774
+#: includes/class-health-check-debug-data.php:807
 msgid "Database prefix"
 msgstr "Префікс таблиць БД"
 
-#: includes/class-health-check-debug-data.php:756
+#: includes/class-health-check-debug-data.php:789
 msgid "Database user"
 msgstr "Користувач БД"
 
-#: includes/class-health-check-debug-data.php:746
+#: includes/class-health-check-debug-data.php:779
 msgid "Server version"
 msgstr "Версія СУБД"
 
-#: includes/class-health-check-debug-data.php:646
+#: includes/class-health-check-debug-data.php:667
 msgid "PHP post max size"
 msgstr "PHP post max size (максимальний розмір POST-запиту)"
 
-#: includes/class-health-check-debug-data.php:642
+#: includes/class-health-check-debug-data.php:663
 msgid "Upload max filesize"
 msgstr "Upload max filesize (максимальний розмір завантаження)"
 
-#: includes/class-health-check-debug-data.php:634
-msgid "PHP memory limit"
-msgstr "PHP memory limit (ліміт пам'яті для скриптів)"
-
-#: includes/class-health-check-debug-data.php:630
+#: includes/class-health-check-debug-data.php:651
 msgid "PHP time limit"
 msgstr "PHP time limit (ліміт часу виконання скриптів)"
 
-#: includes/class-health-check-debug-data.php:626
+#: includes/class-health-check-debug-data.php:647
 msgid "PHP max input variables"
 msgstr "PHP max input variables"
 
-#: includes/class-health-check-debug-data.php:620
+#: includes/class-health-check-debug-data.php:641
 msgid "Server settings"
 msgstr "Налаштування сервера"
 
-#: includes/class-health-check-debug-data.php:597
+#: includes/class-health-check-debug-data.php:612
 msgid "Server architecture"
 msgstr "Серверна архітектура"
 
 #. translators: 1: The IP address WordPress.org resolves to. 2: The error
 #. returned by the lookup.
-#: includes/class-health-check-debug-data.php:399
+#: includes/class-health-check-debug-data.php:404
 msgid "Unable to reach WordPress.org at %1$s: %2$s"
 msgstr "Неможливо з'єднатися з WordPress.org %1$s: %2$s"
 
-#: includes/class-health-check-debug-data.php:339
+#: includes/class-health-check-debug-data.php:344
 msgid "The themes directory"
 msgstr "Директорія тем"
 
-#: includes/class-health-check-debug-data.php:334
+#: includes/class-health-check-debug-data.php:339
 msgid "The plugins directory"
 msgstr "Директорія плагінів"
 
-#: includes/class-health-check-debug-data.php:329
+#: includes/class-health-check-debug-data.php:334
 msgid "The uploads directory"
 msgstr "Директорія uploads"
 
-#: includes/class-health-check-debug-data.php:324
+#: includes/class-health-check-debug-data.php:329
 msgid "The wp-content directory"
 msgstr "Директорія wp-content"
 
-#: includes/class-health-check-debug-data.php:320
 #: includes/class-health-check-debug-data.php:325
 #: includes/class-health-check-debug-data.php:330
 #: includes/class-health-check-debug-data.php:335
 #: includes/class-health-check-debug-data.php:340
-#: includes/class-health-check-debug-data.php:984
+#: includes/class-health-check-debug-data.php:345
+#: includes/class-health-check-debug-data.php:1078
 msgid "Not writable"
 msgstr "Недоступна для запису"
 
-#: includes/class-health-check-debug-data.php:320
 #: includes/class-health-check-debug-data.php:325
 #: includes/class-health-check-debug-data.php:330
 #: includes/class-health-check-debug-data.php:335
 #: includes/class-health-check-debug-data.php:340
-#: includes/class-health-check-debug-data.php:984
+#: includes/class-health-check-debug-data.php:345
+#: includes/class-health-check-debug-data.php:1078
 msgid "Writable"
 msgstr "Доступна для запису"
 
-#: includes/class-health-check-debug-data.php:319
+#: includes/class-health-check-debug-data.php:324
 msgid "The main WordPress directory"
 msgstr "Основна директорія WordPress"
 
-#: includes/class-health-check-debug-data.php:315
+#: includes/class-health-check-debug-data.php:320
 msgid "Filesystem Permissions"
 msgstr "Права на файлову систему"
 
@@ -1830,35 +1922,35 @@ msgstr "Будь-хто може зареєструватися на сайті?
 msgid "Permalink structure"
 msgstr "Структура постійних посилань"
 
-#: includes/class-health-check-debug-data.php:185
-#: includes/class-health-check-debug-data.php:195
-#: includes/class-health-check-debug-data.php:204
-#: includes/class-health-check-debug-data.php:213
-#: includes/class-health-check-debug-data.php:222
-#: includes/class-health-check-debug-data.php:262
+#: includes/class-health-check-debug-data.php:190
+#: includes/class-health-check-debug-data.php:200
+#: includes/class-health-check-debug-data.php:209
+#: includes/class-health-check-debug-data.php:218
+#: includes/class-health-check-debug-data.php:227
 #: includes/class-health-check-debug-data.php:267
-#: includes/class-health-check-debug-data.php:277
+#: includes/class-health-check-debug-data.php:272
 #: includes/class-health-check-debug-data.php:282
+#: includes/class-health-check-debug-data.php:287
 msgid "Disabled"
 msgstr "Вимкнено"
 
-#: includes/class-health-check-debug-data.php:190
 #: includes/class-health-check-debug-data.php:195
-#: includes/class-health-check-debug-data.php:204
-#: includes/class-health-check-debug-data.php:213
-#: includes/class-health-check-debug-data.php:222
-#: includes/class-health-check-debug-data.php:262
+#: includes/class-health-check-debug-data.php:200
+#: includes/class-health-check-debug-data.php:209
+#: includes/class-health-check-debug-data.php:218
+#: includes/class-health-check-debug-data.php:227
 #: includes/class-health-check-debug-data.php:267
-#: includes/class-health-check-debug-data.php:277
+#: includes/class-health-check-debug-data.php:272
 #: includes/class-health-check-debug-data.php:282
+#: includes/class-health-check-debug-data.php:287
 msgid "Enabled"
 msgstr "Увімкнено"
 
-#: includes/class-health-check-site-status.php:1164
+#: includes/class-health-check-site-status.php:1087
 msgid "Your MariaDB version supports utf8mb4."
 msgstr "Ваша версія MariaDB підтримує utf8mb4."
 
-#: includes/class-health-check-site-status.php:1144
+#: includes/class-health-check-site-status.php:1067
 msgid "Your MySQL version supports utf8mb4."
 msgstr "Ваша версія MySQL підтримує utf8mb4."
 
@@ -1866,38 +1958,34 @@ msgstr "Ваша версія MySQL підтримує utf8mb4."
 msgid "The site health check shows critical information about your WordPress configuration and items that require your attention."
 msgstr "Стан здоров'я сайту показує критичну інформацію про конфігурацію WordPress і елементи, що вимагають вашої уваги."
 
-#: includes/class-health-check-debug-data.php:679
+#: includes/class-health-check-debug-data.php:700
 msgid "Is the Imagick library available?"
 msgstr "Imagick доступний?"
 
-#: includes/class-health-check-debug-data.php:621
+#: includes/class-health-check-debug-data.php:642
 msgid "Unable to determine some settings, as the ini_get() function has been disabled."
 msgstr "Неможливо визначити деякі налаштування, функція ini_get() була відключена."
 
-#: includes/class-health-check-debug-data.php:373
+#: includes/class-health-check-debug-data.php:378
 msgid "Network count"
 msgstr "Число мереж"
 
-#: includes/class-health-check-debug-data.php:368
+#: includes/class-health-check-debug-data.php:373
 msgid "Site count"
 msgstr "Число сайтів"
 
-#: includes/class-health-check-debug-data.php:363
-#: includes/class-health-check-debug-data.php:380
+#: includes/class-health-check-debug-data.php:368
+#: includes/class-health-check-debug-data.php:385
 msgid "User count"
 msgstr "Число користувачів"
 
-#: includes/class-health-check-debug-data.php:983
+#: includes/class-health-check-debug-data.php:1077
 msgid "The must use plugins directory"
 msgstr "Папка обов'язкових (MU) плагінів"
 
-#: includes/class-health-check-debug-data.php:175
+#: includes/class-health-check-debug-data.php:180
 msgid "The options shown below relate to your server setup. If changes are required, you may need your web host&#8217;s assistance."
 msgstr "Налаштування нижче відносяться до конфігурації вашого сервера. Для внесення змін, при їх необхідності, вам слід звернутися в технічну підтримку вашого хостингу."
-
-#: includes/class-health-check-debug-data.php:145
-msgid "Other Themes"
-msgstr "Інші теми"
 
 #: includes/class-health-check-debug-data.php:135
 msgid "Drop-ins are single files that replace or enhance WordPress features in ways that are not possible for traditional plugins."
@@ -1919,3 +2007,7 @@ msgstr "https://uk.wordpress.org/plugins/health-check/"
 #: pages/phpinfo.php:24
 msgid "The phpinfo() function has been disabled by your host. Please contact the host if you need more information about your setup."
 msgstr "Функція phpinfo() була відключена на вашому хостингу. Якщо вам потрібна інформація, то зверніться в підтримку хостингу."
+
+#: includes/class-health-check-debug-data.php:655
+msgid "PHP memory limit"
+msgstr "Обмеження пам'яті PHP"
