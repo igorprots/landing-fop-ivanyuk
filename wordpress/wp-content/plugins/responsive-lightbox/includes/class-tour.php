@@ -12,6 +12,11 @@ new Responsive_Lightbox_Tour();
  */
 class Responsive_Lightbox_Tour {
 
+	/**
+	 * Class constructor.
+	 *
+	 * @return void
+	 */
 	public function __construct() {
 		// actions
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
@@ -21,6 +26,8 @@ class Responsive_Lightbox_Tour {
 
 	/**
 	 * Initialize tour.
+	 *
+	 * @return void
 	 */
 	public function init_tour() {
 		if ( ! current_user_can( apply_filters( 'rl_lightbox_settings_capability', 'manage_options' ) ) )
@@ -47,6 +54,8 @@ class Responsive_Lightbox_Tour {
 
 	/**
 	 * Add temporary admin menu.
+	 *
+	 * @return void
 	 */
 	public function admin_menu() {
 		global $pagenow;
@@ -58,15 +67,18 @@ class Responsive_Lightbox_Tour {
 	/**
 	 *
 	 */
-	function temporary_submenu() {
-		// nothing to do here
-	}
+	function temporary_submenu() {}
 
 	/**
 	 * Load pointer scripts.
+	 *
+	 * @return void
 	 */
 	public function tour_scripts_styles() {
+		// enqueue styles
 		wp_enqueue_style( 'wp-pointer' );
+
+		// enqueue scripts
 		wp_enqueue_script( 'jquery-ui' );
 		wp_enqueue_script( 'wp-pointer' );
 		wp_enqueue_script( 'utils' );
@@ -74,6 +86,8 @@ class Responsive_Lightbox_Tour {
 
 	/**
 	 * Load the introduction tour.
+	 *
+	 * @return void
 	 */
 	public function start_tour() {
 		global $pagenow;
@@ -101,7 +115,7 @@ class Responsive_Lightbox_Tour {
 				else
 					$pointer['function'] = 'window.location="' . admin_url( 'admin.php?page=responsive-lightbox-settings' ) . '";';
 			}
-			// gallery taxonomies
+		// gallery taxonomies
 		} elseif ( $pagenow === 'edit-tags.php' ) {
 			if ( isset( $_GET['taxonomy'], $_GET['post_type'] ) && $_GET['post_type'] === 'rl_gallery' ) {
 				if ( $_GET['taxonomy'] === 'rl_category' ) {
@@ -128,7 +142,7 @@ class Responsive_Lightbox_Tour {
 					);
 				}
 			}
-			// settings
+		// settings
 		} elseif ( $pagenow === 'admin.php' && isset( $_GET['page'] ) ) {
 			// general
 			if ( $_GET['page'] === 'responsive-lightbox-settings' ) {
@@ -139,9 +153,10 @@ class Responsive_Lightbox_Tour {
 					'id'		 => '#wpbody-content .wrap h2:first',
 					'function'	 => 'window.location="' . admin_url( 'admin.php?page=responsive-lightbox-configuration' ) . '";'
 				);
+			// lightboxes
 			} elseif ( $_GET['page'] === 'responsive-lightbox-configuration' ) {
 				// get additional plugins based on tabs
-				$plugins = array_values( array_diff( array_keys( $rl->settings->tabs ), array( 'settings', 'configuration', 'gallery', 'builder', 'folders', 'licenses', 'addons' ) ) );
+				$plugins = array_values( array_diff( array_keys( $rl->settings->tabs ), array( 'settings', 'configuration', 'gallery', 'builder', 'folders', 'remote_library', 'licenses', 'addons' ) ) );
 
 				if ( ! empty( $plugins ) ) {
 					// get first plugin tab key
@@ -150,12 +165,13 @@ class Responsive_Lightbox_Tour {
 					$plugin_key = 'gallery';
 
 				$pointer = array(
-					'content'	 => '<h3>' . __( 'Lightboxe Settings', 'responsive-lightbox' ) . '</h3>' . 
+					'content'	 => '<h3>' . __( 'Lightboxes Settings', 'responsive-lightbox' ) . '</h3>' . 
 					'<p>' . __( 'Each lightbox has different look, possibilities and parameters. Here is a list of available lightbox effects along with their settings. After entering the tab you can see the settings of the currently selected lightbox, but you can also modify or restore the settings of the others.', 'responsive-lightbox' ) . '</p>',
 					'button2'	 => __( 'Next', 'responsive-lightbox' ),
 					'id'		 => '#wpbody-content .wrap h2:first',
 					'function'	 => 'window.location="' . admin_url( 'admin.php?page=responsive-lightbox-' . $plugin_key ) . '";'
 				);
+			// galleries
 			} elseif ( $_GET['page'] === 'responsive-lightbox-gallery' ) {
 				$pointer = array(
 					'content'	 => '<h3>' . __( 'Gallery Settings', 'responsive-lightbox' ) . '</h3>' . 
@@ -164,22 +180,34 @@ class Responsive_Lightbox_Tour {
 					'id'		 => '#wpbody-content .wrap h2:first',
 					'function'	 => 'window.location="' . admin_url( 'admin.php?page=responsive-lightbox-builder' ) . '";'
 				);
+			// builder
 			} elseif ( $_GET['page'] === 'responsive-lightbox-builder' ) {
 				$pointer = array(
 					'content'	 => '<h3>' . __( 'Builder Settings', 'responsive-lightbox' ) . '</h3>' . 
 					'<p>' . __( 'You can use the galleries in many ways - insert them into posts using the Add Gallery button, insert manually using shortcodes or add to the theme using functions. But you can also display them in archives just like other post types. Use these settings to specify the functionality of the gallery builder like categories, tags, archives and permalinks.', 'responsive-lightbox' ) . '</p>',
 					'button2'	 => __( 'Next', 'responsive-lightbox' ),
 					'id'		 => '#wpbody-content .wrap h2:first',
-					'function'	 => 'window.location="' . admin_url( 'admin.php?page=responsive-lightbox-' . ( $rl->options['folders']['active'] ? 'folders' : ( ! empty( $rl->settings->tabs['licenses'] ) ? 'licenses' : 'addons' ) ) ) . '";'
+					'function'	 => 'window.location="' . admin_url( 'admin.php?page=responsive-lightbox-folders' ) . '";'
 				);
+			// media folders
 			} elseif ( $_GET['page'] === 'responsive-lightbox-folders' ) {
 				$pointer = array(
 					'content'	 => '<h3>' . __( 'Folders Settings', 'responsive-lightbox' ) . '</h3>' . 
 					'<p>' . __( 'Responsive Lithbox & Gallery comes with an optional Media Folders feature that extends your WordPress Media Library with visual folders. It allows you to organize your attachments in a folder tree structure. Move, copy, rename and delete files and folders with a nice drag and drop interface.', 'responsive-lightbox' ) . '</p>',
 					'button2'	 => __( 'Next', 'responsive-lightbox' ),
 					'id'		 => '#wpbody-content .wrap h2:first',
+					'function'	 => 'window.location="' . admin_url( 'admin.php?page=responsive-lightbox-remote_library' ) . '";'
+				);
+			// remote library
+			} elseif ( $_GET['page'] === 'responsive-lightbox-remote_library' ) {
+				$pointer = array(
+					'content'	 => '<h3>' . __( 'Remote Library Settings', 'responsive-lightbox' ) . '</h3>' . 
+					'<p>' . __( 'Are you looking for free royalty free public domain and CC0-Licensed images for your website? Or you need to access your images stored in photo-sharing apps? Remote Library allows you to use images from multiple sources like Unsplash, Pixabay, Flickr or Instagram directly in your WordPress Media Manager. Now you can create galleries, browse, insert and import images as never before.', 'responsive-lightbox' ) . '</p>',
+					'button2'	 => __( 'Next', 'responsive-lightbox' ),
+					'id'		 => '#wpbody-content .wrap h2:first',
 					'function'	 => 'window.location="' . admin_url( 'admin.php?page=responsive-lightbox-' . ( ! empty( $rl->settings->tabs['licenses'] ) ? 'licenses' : 'addons' ) ) . '";'
 				);
+			// licenses
 			} elseif ( $_GET['page'] === 'responsive-lightbox-licenses' ) {
 				$pointer = array(
 					'content'	 => '<h3>' . __( 'License Settings', 'responsive-lightbox' ) . '</h3>' . 
@@ -188,6 +216,7 @@ class Responsive_Lightbox_Tour {
 					'id'		 => '#wpbody-content .wrap h2:first',
 					'function'	 => 'window.location="' . admin_url( 'admin.php?page=responsive-lightbox-addons' ) . '";'
 				);
+			// addons
 			} elseif ( $_GET['page'] === 'responsive-lightbox-addons' ) {
 				$pointer = array(
 					'content'	 => '<h3>' . __( 'Add-ons', 'responsive-lightbox' ) . '</h3>' . 
@@ -196,10 +225,9 @@ class Responsive_Lightbox_Tour {
 					'id'		 => '#wpbody-content .wrap h2:first',
 					'function'	 => ''
 				);
-				// plugins related tabs
-			} else {
+			// plugins related tabs
+			} else
 				$pointer = apply_filters( 'rl_tour_pointer', array(), esc_attr( $_GET['page'] ) );
-			}
 		}
 
 		// valid pointer?
@@ -219,6 +247,8 @@ class Responsive_Lightbox_Tour {
 
 	/**
 	 * Ignore tour.
+	 *
+	 * @return void
 	 */
 	public function ignore_tour() {
 		if ( isset( $_POST['rl_nonce'] ) && wp_verify_nonce( $_POST['rl_nonce'], 'rl-ignore-tour' ) !== false )
@@ -229,6 +259,8 @@ class Responsive_Lightbox_Tour {
 
 	/**
 	 * Prints the pointer script
+	 *
+	 * @return void
 	 */
 	public function print_scripts( $selector, $options, $button1, $button2 = false, $button2_function = '',	$button1_function = '' ) {
 		?>
@@ -292,5 +324,4 @@ class Responsive_Lightbox_Tour {
 		</script>
 		<?php
 	}
-
 }

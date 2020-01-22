@@ -16,11 +16,15 @@ class Responsive_Lightbox_Folders {
     /**
      * Class constructor.
      *
-     * @return	void
+	 * @param bool $read_only Whether run this in read only mode
+     * @return void
      */
     public function __construct( $read_only = false ) {
 		// set instance
 		Responsive_Lightbox()->folders = $this;
+
+		// allow to load old taxonomies even in read only mode
+		add_action( 'wp_ajax_rl-folders-load-old-taxonomies', array( $this, 'load_old_taxonomies' ) );
 
 		if ( $read_only )
 			return;
@@ -37,8 +41,8 @@ class Responsive_Lightbox_Folders {
 		add_action( 'wp_ajax_rl-folders-rename-term', array( $this, 'rename_term' ) );
 		add_action( 'wp_ajax_rl-folders-add-term', array( $this, 'add_term' ) );
 		add_action( 'wp_ajax_rl-folders-move-term', array( $this, 'move_term' ) );
+		add_action( 'wp_ajax_rl-folders-get-terms', array( $this, 'get_terms' ) );
 		add_action( 'wp_ajax_rl-folders-move-attachments', array( $this, 'move_attachments' ) );
-		add_action( 'wp_ajax_rl-folders-load-old-taxonomies', array( $this, 'load_old_taxonomies' ) );
 
 		// filters
 		add_filter( 'admin_body_class', array( $this, 'admin_body_class' ) );
@@ -62,6 +66,10 @@ class Responsive_Lightbox_Folders {
 				if ( ( $key = array_search( 'rl_media_folder', $fields, true ) ) !== false )
 					unset( $fields[$key] );
 
+				// remove media tags
+				if ( ( $key = array_search( 'rl_media_tag', $fields, true ) ) !== false )
+					unset( $fields[$key] );
+
 				foreach ( $_POST['taxonomies'] as $taxonomy ) {
 					// remove available taxonomy
 					if ( ( $key = array_search( $taxonomy, $fields, true ) ) !== false )
@@ -73,6 +81,7 @@ class Responsive_Lightbox_Folders {
 			wp_send_json_success( array( 'taxonomies' => array_values( $fields ) ) );
 		}
 
+		// send JSON error
 		wp_send_json_error();
     }
 
@@ -107,6 +116,20 @@ class Responsive_Lightbox_Folders {
 			// store mode
 			$this->mode = $mode;
 		}
+
+		if ( $pagenow === 'upload.php' || ( defined( 'DOING_AJAX' ) && DOING_AJAX ) ) {
+			$this->rl_media_tag_terms = get_terms(
+				array(
+					'taxonomy'		=> 'rl_media_tag',
+					'hide_empty'	=> false,
+					'orderby'		=> 'name',
+					'order'			=> 'asc',
+					'number'		=> 0,
+					'fields'		=> 'id=>name',
+					'hierarchical'	=> false
+				)
+			);
+		}
     }
 
     /**
@@ -135,22 +158,40 @@ class Responsive_Lightbox_Folders {
      * @return string
      */
 	private function get_folders( $taxonomy, $selected = 0 ) {
-		return wp_dropdown_categories(
+		// get only 1 term to check if taxonomy is empty
+		$any_terms = get_terms(
 			array(
-				'orderby'			=> 'name',
-				'order'				=> 'asc',
-				'show_option_all'	=> __( 'Root Folder', 'responsive-lightbox' ),
-				'show_count'		=> false,
-				'hide_empty'		=> false,
-				'hierarchical'		=> true,
-				'hide_if_empty'		=> false,
-				'echo'				=> false,
-				'selected'			=> (int) $selected,
-				'id'				=> 'rl_folders_upload_files',
-				'name'				=> 'rl_folders_upload_files_term_id',
-				'taxonomy'			=> $taxonomy
+				'taxonomy'		=> $taxonomy,
+				'hide_empty'	=> false,
+				'fields'		=> 'ids',
+				'hierarchical'	=> false,
+				'number'		=> 1
 			)
 		);
+
+		// prepare dropdown categories parameters
+		$args = array(
+			'orderby'			=> 'name',
+			'order'				=> 'asc',
+			'show_option_all'	=> __( 'Root Folder', 'responsive-lightbox' ),
+			'show_count'		=> false,
+			'hide_empty'		=> false,
+			'hierarchical'		=> true,
+			'hide_if_empty'		=> false,
+			'echo'				=> false,
+			'selected'			=> (int) $selected,
+			'id'				=> 'rl_folders_upload_files',
+			'name'				=> 'rl_folders_upload_files_term_id',
+			'taxonomy'			=> $taxonomy
+		);
+
+		// no terms?
+		if ( ! is_wp_error( $any_terms ) && empty( $any_terms ) ) {
+			$args['show_option_none'] = __( 'Root Folder', 'responsive-lightbox' );
+			$args['option_none_value'] = 0;
+		}
+
+		return wp_dropdown_categories( $args );
 	}
 
     /**
@@ -162,23 +203,41 @@ class Responsive_Lightbox_Folders {
 		// get taxonomy
 		$taxonomy = Responsive_Lightbox()->options['folders']['media_taxonomy'];
 
-		// dropdown categories parameters
-		echo '<p><label>' . __( 'Upload files to', 'responsive-lightbox' ) . ': ' . wp_dropdown_categories(
+		// get only 1 term to check if taxonomy is empty
+		$any_terms = get_terms(
 			array(
-				'orderby'			=> 'name',
-				'order'				=> 'asc',
-				'show_option_all'	=> __( 'Root Folder', 'responsive-lightbox' ),
-				'show_count'		=> false,
-				'hide_empty'		=> false,
-				'hierarchical'		=> true,
-				'hide_if_empty'		=> false,
-				'echo'				=> false,
-				'selected'			=> isset( $_GET[$taxonomy] ) ? (int) $_GET[$taxonomy] : 0,
-				'id'				=> 'rl_folders_upload_files',
-				'name'				=> 'rl_folders_upload_files_term_id',
-				'taxonomy'			=> $taxonomy
+				'taxonomy'		=> $taxonomy,
+				'hide_empty'	=> false,
+				'fields'		=> 'ids',
+				'hierarchical'	=> false,
+				'number'		=> 1
 			)
-		) . '</label></p>';
+		);
+
+		// prepare dropdown categories parameters
+		$args = array(
+			'orderby'			=> 'name',
+			'order'				=> 'asc',
+			'show_option_all'	=> __( 'Root Folder', 'responsive-lightbox' ),
+			'show_count'		=> false,
+			'hide_empty'		=> false,
+			'hierarchical'		=> true,
+			'hide_if_empty'		=> false,
+			'echo'				=> false,
+			'selected'			=> isset( $_GET[$taxonomy] ) ? (int) $_GET[$taxonomy] : 0,
+			'id'				=> 'rl_folders_upload_files',
+			'name'				=> 'rl_folders_upload_files_term_id',
+			'taxonomy'			=> $taxonomy
+		);
+
+		// no terms?
+		if ( ! is_wp_error( $any_terms ) && empty( $any_terms ) ) {
+			$args['show_option_none'] = __( 'Root Folder', 'responsive-lightbox' );
+			$args['option_none_value'] = 0;
+		}
+
+		// display select
+		echo '<p><label>' . __( 'Upload files to', 'responsive-lightbox' ) . ': ' . wp_dropdown_categories( $args ) . '</label></p>';
     }
 
     /**
@@ -237,9 +296,9 @@ class Responsive_Lightbox_Folders {
     /**
      * Change query to adjust taxonomy if needed.
      *
-     * @global	string	$pagenow	Current page
-     * @param	object	$query		WP Query
-     * @return	object				Modified query
+     * @global string $pagenow Current page
+     * @param object $query WP Query
+     * @return object Modified query
      */
     public function parse_query( $query ) {
 		global $pagenow;
@@ -286,10 +345,10 @@ class Responsive_Lightbox_Folders {
     }
 
     /**
-     * Change ajax query parameters to adjust taxonomy in the media library if needed.
+     * Change AJAX query parameters to adjust taxonomy in the media library if needed.
      *
-     * @param	array	$query	Query arguments
-     * @return	array			Modified query arguments
+     * @param array $query Query arguments
+     * @return array Modified query arguments
      */
     public function ajax_query_attachments_args( $query ) {
 		// get taxonomy
@@ -325,9 +384,9 @@ class Responsive_Lightbox_Folders {
     /**
      * Filter the array of attachment fields that are displayed when editing an attachment.
      *
-     * @param	array	$fields		Attachment fields
-     * @param	object	$post		Post object
-     * @return	array				Modified attachment fields
+     * @param array $fields Attachment fields
+     * @param object $post Post object
+     * @return array Modified attachment fields
      */
     function attachment_fields_to_edit( $fields, $post ) {
 		if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
@@ -344,10 +403,9 @@ class Responsive_Lightbox_Folders {
 				if ( empty( $tax['args'] ) )
 					$tax['args'] = array();
 
-				// include_once( RESPONSIVE_LIGHTBOX_PATH . 'includes/class-folders-walker.php' );
-
 				$ids = wp_get_post_terms( $post->ID, $taxonomy, array( 'fields' => 'ids' ) );
 
+				// get select HTML
 				$dropdown = wp_dropdown_categories(
 					array(
 						'orderby'			=> 'name',
@@ -370,6 +428,42 @@ class Responsive_Lightbox_Folders {
 
 				$fields[$taxonomy] = $tax;
 			}
+
+			if ( Responsive_Lightbox()->options['folders']['media_tags'] && taxonomy_exists( 'rl_media_tag' ) ) {
+				// get taxonomy object
+				$tax = (array) get_taxonomy( 'rl_media_tag' );
+
+				if ( ! empty( $tax ) ) {
+					if ( ! $tax['public'] || ! $tax['show_ui'] )
+						return $fields;
+
+					if ( empty( $tax['args'] ) )
+						$tax['args'] = array();
+
+					$tags_html = '';
+
+					// get terms
+					$tags = wp_get_post_terms( $post->ID, 'rl_media_tag', array( 'fields' => 'id=>name' ) );
+
+					// valid terms?
+					if ( ! is_wp_error( $tags ) && ! empty( $tags ) ) {
+						foreach ( $tags as $tag_name ) {
+							$tags_html .= '<option value="' . $tag_name . '" selected="selected">' . esc_html( $tag_name ) . '</li>';
+						}
+					} else
+						$tags = array();
+
+					// update input
+					$tax['input'] = 'html';
+					$tax['html'] = '
+					<select class="rl-media-tag-select2" multiple="multiple" name="attachments[' . $post->ID . '][rl_media_tag]">
+						' . $tags_html . '
+					</select>';
+
+					// update taxonomy
+					$fields['rl_media_tag'] = $tax;
+				}
+			}
 		}
 
 		return $fields;
@@ -378,7 +472,7 @@ class Responsive_Lightbox_Folders {
     /**
      * Assign new term IDs to given attachment ID via AJAX in modal attachment edit screen.
      *
-     * @return	void
+     * @return void
      */
     function ajax_save_attachment_compat() {
 		if ( ! isset( $_REQUEST['id'] ) || ( $id = (int) $_REQUEST['id'] ) <= 0 || empty( $_REQUEST['attachments'] ) || empty( $_REQUEST['attachments'][$id] ) )
@@ -394,11 +488,13 @@ class Responsive_Lightbox_Folders {
 		if ( $post['post_type'] !== 'attachment' )
 			wp_send_json_error();
 
+		// update attachment data if needed
 		$post = apply_filters( 'attachment_fields_to_save', $post, $_REQUEST['attachments'][$id] );
 
 		if ( isset( $post['errors'] ) )
 			wp_send_json_error();
 
+		// update attachment
 		wp_update_post( $post );
 
 		// get taxonomy
@@ -412,16 +508,57 @@ class Responsive_Lightbox_Folders {
 		else
 			wp_set_object_terms( $id, '', $taxonomy, false );
 
+		// check media tags
+		if ( isset( $_REQUEST['attachments'][$id]['rl_media_tag'] ) ) {
+			$media_tags = explode( ',', $_REQUEST['attachments'][$id]['rl_media_tag'] );
+
+			if ( is_array( $media_tags ) )
+				$media_tags = array_filter( array_map( 'trim', $media_tags ) );
+
+			// any media tags?
+			if ( ! empty( $media_tags ) ) {
+				wp_set_object_terms( $id, $media_tags, 'rl_media_tag', false );
+			} else {
+				wp_set_object_terms( $id, '', 'rl_media_tag', false );
+			}
+		}
+
 		if ( ! ( $attachment = wp_prepare_attachment_for_js( $id ) ) )
 			wp_send_json_error();
 
+		// send JSON success
 		wp_send_json_success( $attachment );
     }
+
+	/**
+     * Assign new term IDs to given attachment ID via AJAX in modal attachment edit screen.
+     *
+     * @return void
+     */
+    function get_terms() {
+		$tags_html = '';
+
+		$tags = wp_get_post_terms( $post->ID, 'rl_media_tag', array( 'fields' => 'id=>name' ) );
+
+		if ( ! is_wp_error( $tags ) && ! empty( $tags ) ) {
+			foreach ( $tags as $tag_id => $tag_name ) {
+				$tags_html .= '<option value="' . $tag_id . '" selected="selected">' . esc_html( $tag_name ) . '</li>';
+			}
+		} else
+			$tags = array();
+
+		if ( ! empty( $this->rl_media_tag_terms ) ) {
+			foreach ( $this->rl_media_tag_terms as $tag_id => $tag_name ) {
+				if ( ! array_key_exists( $tag_id, $tags ) )
+					$tags_html .= '<option value="' . $tag_id . '">' . esc_html( $tag_name ) . '</li>';
+			}
+		}
+	}
 
     /**
      * AJAX action to delete term.
      *
-     * @return	void
+     * @return void
      */
     public function delete_term() {
 		if ( isset( $_POST['term_id'], $_POST['nonce'], $_POST['children'] ) && wp_verify_nonce( $_POST['nonce'], 'rl-folders-ajax-library-nonce' ) && ( $term_id = (int) $_POST['term_id'] ) > 0 ) {
@@ -448,13 +585,14 @@ class Responsive_Lightbox_Folders {
 				wp_send_json_success( $this->get_folders( $taxonomy ) );
 		}
 
+		// send JSON error
 		wp_send_json_error();
     }
 
     /**
      * AJAX action to assign new parent of the term.
      *
-     * @return	void
+     * @return void
      */
     public function move_term() {
 		// get taxonomy
@@ -463,13 +601,14 @@ class Responsive_Lightbox_Folders {
 		if ( isset( $_POST['parent_id'], $_POST['term_id'], $_POST['nonce'] ) && wp_verify_nonce( $_POST['nonce'], 'rl-folders-ajax-library-nonce' ) && ! is_wp_error( wp_update_term( (int) $_POST['term_id'], $taxonomy, array( 'parent' => (int) $_POST['parent_id'] ) ) ) )
 			wp_send_json_success( $this->get_folders( $taxonomy ) );
 
+		// send JSON error
 		wp_send_json_error();
     }
 
     /**
      * AJAX action to add new term.
      *
-     * @return	void
+     * @return void
      */
     public function add_term() {
 		if ( isset( $_POST['parent_id'], $_POST['name'], $_POST['nonce'] ) && wp_verify_nonce( $_POST['nonce'], 'rl-folders-ajax-library-nonce' ) ) {
@@ -521,13 +660,14 @@ class Responsive_Lightbox_Folders {
 			}
 		}
 
+		// send JSON error
 		wp_send_json_error();
     }
 
     /**
      * AJAX action to rename term.
      *
-     * @return	void
+     * @return void
      */
     public function rename_term() {
 		if ( isset( $_POST['term_id'], $_POST['name'], $_POST['nonce'] ) && wp_verify_nonce( $_POST['nonce'], 'rl-folders-ajax-library-nonce' ) && ( $term_id = (int) $_POST['term_id'] ) > 0 ) {
@@ -544,13 +684,14 @@ class Responsive_Lightbox_Folders {
 			}
 		}
 
+		// send JSON error
 		wp_send_json_error();
     }
 
     /**
      * AJAX action to assign new term to an attachment(s).
      *
-     * @return	void
+     * @return void
      */
     public function move_attachments() {
 		if ( isset( $_POST['attachment_ids'], $_POST['old_term_id'], $_POST['new_term_id'], $_POST['nonce'] ) && wp_verify_nonce( $_POST['nonce'], 'rl-folders-ajax-library-nonce' ) && is_array( $_POST['attachment_ids'] ) && ! empty( $_POST['attachment_ids'] ) ) {
@@ -618,180 +759,15 @@ class Responsive_Lightbox_Folders {
 				wp_send_json_success( array( 'attachments' => $attachments, 'terms' => $all_terms ) );
 		}
 
+		// send JSON error
 		wp_send_json_error();
-		/*if ( isset( $_POST['attachment_ids'], $_POST['old_term_id'], $_POST['new_term_id'], $_POST['nonce'] ) && wp_verify_nonce( $_POST['nonce'], 'rl-folders-ajax-library-nonce' ) && is_array( $_POST['attachment_ids'] ) && ! empty( $_POST['attachment_ids'] ) ) {
-			// get taxonomy
-			$taxonomy = Responsive_Lightbox()->options['folders']['media_taxonomy'];
-
-			// prepare data
-			$ids = $all_terms = array();
-			$attachments = array(
-				'success'	 => array(),
-				'failure'	 => array(),
-				'duplicated'	 => array()
-			);
-
-			// get only numeric values first
-			foreach ( $_POST['attachment_ids'] as $id ) {
-				if ( is_numeric( $id ) )
-					$ids[] = (int) $id;
-			}
-
-			// filter unwanted data
-			$ids = array_unique( array_filter( $ids ) );
-
-			// no ids?
-			if ( empty( $ids ) )
-				wp_send_json_error();
-
-			// prepare term ids
-			$old_term_id = (int) $_POST['old_term_id'];
-			$new_term_id = (int) $_POST['new_term_id'];
-
-			$folders = array(
-				$old_term_id	=> 0,
-				$new_term_id	=> 0
-			);
-
-			$update_terms = array();
-
-			// moving to root folder?
-			if ( $new_term_id === 0 ) {
-				foreach ( $ids as $id ) {
-					// get attachment's term ids
-					$all_terms[$id] = wp_get_object_terms( $id, $taxonomy, array( 'fields' => 'ids' ) );
-
-					// remove all terms assigned to attachment
-					if ( ! is_wp_error( wp_set_object_terms( $id, null, $taxonomy, false ) ) )
-						$attachments['success'][] = $id;
-					else
-						$attachments['failure'][] = $id;
-				}
-			} else {
-				foreach ( $ids as $id ) {
-					// get attachment's term ids
-					$terms = wp_get_object_terms( $id, $taxonomy, array( 'fields' => 'ids' ) );
-
-					// got terms?
-					if ( ! is_wp_error( $terms ) ) {
-						
-
-						// save existing term (attachment already assigned to this term)
-						if ( in_array( $new_term_id, $terms, true ) )
-							$attachments['duplicated'][] = $id;
-
-						// update attachment's term
-						if ( ! is_wp_error( wp_set_object_terms( $id, $new_term_id, $taxonomy, false ) ) ) {
-							$attachments[$new_term_id]['success'][] = $id;
-							// if ( $old_term_id === -1 ) {
-								// foreach ( $terms as $term ) {
-									// $update_terms[$term] 
-								// }
-							// }
-						} else
-							$attachments['failure'][] = $id;
-					}
-				}
-			}
-
-/*
-			$folders[0] = 0;
-
-			$folders = array(
-				$old_term_id	=> 0,
-				$new_term_id	=> 0
-			);
-
-			foreach ( $ids as $id ) {
-				// get attachment's term ids
-				$terms = wp_get_object_terms( $id, $taxonomy, array( 'fields' => 'ids' ) );
-// var_dump( $terms );
-				// got terms?
-				if ( ! is_wp_error( $terms ) ) {
-					if ( $new_term_id === 0 ) {
-						if ( ! empty( $terms ) ) {
-							foreach ( $terms as $term ) {
-								// ignore 'all files' folder
-								if ( $term < 0 )
-									continue;
-
-								if ( ! array_key_exists( $term, $folders ) )
-									$folders[$term] = 0;
-
-								if ( ! in_array( $new_term_id, $terms, true ) )
-									$folders[$term]--;
-							}
-
-							// save existing term (attachment already assigned to this term)
-							if ( in_array( $new_term_id, $terms, true ) ) {
-								$attachments['duplicated'][] = $id;
-
-								continue;
-							}
-						} else {
-							// $attachments['duplicated'][] = $id;
-						}
-
-						// update attachment's term
-						if ( ! is_wp_error( wp_set_object_terms( $id, null, $taxonomy, false ) ) ) {
-							if ( $old_term_id >= 0 )
-								$folders[$old_term_id]--;
-
-							$folders[$new_term_id]++;
-
-							$attachments['success'][] = $id;
-						} else
-							$attachments['failure'][] = $id;
-					} else {
-						if ( ! empty( $terms ) ) {
-							$old_term = $terms[0];
-
-							foreach ( $terms as $term ) {
-								if ( ! array_key_exists( $term, $folders ) )
-									$folders[$term] = 0;
-
-								if ( $term !== $new_term_id )
-									$folders[$term]--;
-							}
-
-							// save existing term (attachment already assigned to this term)
-							// if ( in_array( $new_term_id, $terms, true ) ) {
-								// $attachments['duplicated'][] = $id;
-						} else {
-							$old_term = 0;
-							$folders[0]--;
-						}
-var_dump( $old_term );
-						// update attachment's term
-						if ( ! is_wp_error( wp_set_object_terms( $id, $new_term_id, $taxonomy, false ) ) ) {
-							// if ( $old_term_id >= 0 )
-								// $folders[$old_term_id]--;
-
-							if ( $old_term !== $new_term_id )
-								$folders[$new_term_id]++;
-
-							$attachments['success'][] = $id;
-						} else {
-							$attachments['failure'][] = $id;
-						}
-					}
-				}
-			}
-var_dump( $attachments );
-var_dump( $folders );
-			if ( ! empty( $attachments['success'] ) )
-				wp_send_json_success( array( 'attachments' => $attachments, 'folders' => $folders ) );
-		}
-
-		wp_send_json_error();
-		*/
     }
 
     /**
      * Change wp_list_categories HTML link.
      *
-     * @param	array	$matches	Matched link
-     * @return	string				Changed link with term ID
+     * @param array $matches Matched elements
+     * @return string Changed link with term ID
      */
     public function replace_folders_href( $matches ) {
 		// get taxonomy
@@ -821,8 +797,8 @@ var_dump( $folders );
     /**
      * Change wp_list_categories HTML link by adding attachment counter.
      *
-     * @param	array	$matches	Matched link
-     * @return	string				Changed link with counter
+     * @param array $matches Matched elements
+     * @return string Changed link with counter
      */
     public function replace_folders_count( $matches ) {
 		if ( isset( $matches[1] ) ) {
@@ -838,8 +814,8 @@ var_dump( $folders );
     /**
      * Change wp_list_categories HTML output by adding jsTree attributes if needed.
      *
-     * @param	array	$matches	Matched element
-     * @return	string				Changed element
+     * @param array $matches Matched elements
+     * @return string Changed element
      */
     public function open_folders( $matches ) {
 		if ( isset( $matches[0] ) ) {
@@ -856,10 +832,10 @@ var_dump( $folders );
     /**
      * Enqueue all needed scripts and styles for media library and modal screens.
      *
-     * @global	string	$pagenow		Current page
-     * @global	string	$wp_list_table	WP List Table instance
-     * @param	string	$page			Current page similar to $pagenow depends on from which filter function was called
-     * @return	void
+     * @global string $pagenow Current page
+     * @global string $wp_list_table WP List Table instance
+     * @param string $page Current page similar to $pagenow depends on from which filter function was called
+     * @return void
      */
     public function add_library_scripts( $page ) {
 		// count how many times function was executed, allow this only once
@@ -881,46 +857,54 @@ var_dump( $folders );
 				$page = 'media';
 		}
 
+		// get main instance
+		$rl = Responsive_Lightbox();
+
 		// include styles
+		wp_enqueue_style( 'responsive-lightbox-admin-select2', RESPONSIVE_LIGHTBOX_URL . '/assets/select2/select2' . ( ! ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '.min' : '' ) . '.css', array(), $rl->defaults['version'] );
 		wp_enqueue_style( 'responsive-lightbox-folders-admin-css', RESPONSIVE_LIGHTBOX_URL . '/css/admin-folders.css' );
 		wp_enqueue_style( 'responsive-lightbox-folders-perfect-scrollbar', RESPONSIVE_LIGHTBOX_URL . '/assets/perfect-scrollbar/perfect-scrollbar' . ( ! ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '.min' : '' ) . '.css' );
-		// wp_enqueue_style( 'responsive-lightbox-folders-jstree', RESPONSIVE_LIGHTBOX_URL . '/assets/jstree/themes/' . Responsive_Lightbox()->options['folders']['jstree_style'] . '/style' . ( ! ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '.min' : '' ) . '.css' );
+		// wp_enqueue_style( 'responsive-lightbox-folders-jstree', RESPONSIVE_LIGHTBOX_URL . '/assets/jstree/themes/' . $rl->options['folders']['jstree_style'] . '/style' . ( ! ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '.min' : '' ) . '.css' );
 		wp_enqueue_style( 'responsive-lightbox-folders-jstree', RESPONSIVE_LIGHTBOX_URL . '/assets/jstree/themes/default/style' . ( ! ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '.min' : '' ) . '.css' );
-		
+
 		// get color scheme global
 		global $_wp_admin_css_colors;
 
-		// get current admin color scheme name
-		$current_color_scheme = get_user_option( 'admin_color' );
+		// set default color;
+		$color = '0,160,210';
 
-		// get all available colors from scheme name
-		$colors = $_wp_admin_css_colors[$current_color_scheme]->colors;
-		
-		// print_r( Responsive_Lightbox()->hex2rgb( $colors[2] ) ); exit;
-		
-		$custom_css = '
-		#rl-folders-tree-container .jstree .rl-folders-state-active.rl-folders-state-hover {
-			background: #fff !important;
+		if ( ! empty( $_wp_admin_css_colors ) ) {
+			// get current admin color scheme name
+			$current_color_scheme = get_user_option( 'admin_color' );
+
+			if ( empty( $current_color_scheme ) )
+				$current_color_scheme = 'fresh';
+
+			if ( isset( $_wp_admin_css_colors[$current_color_scheme] ) )
+				$color = implode( ',', $rl->hex2rgb( $_wp_admin_css_colors[$current_color_scheme]->colors[3] ) );
 		}
-		#rl-folders-tree-container .jstree-container-ul .jstree-wholerow-clicked,
-		#rl-folders-tree-container .jstree-container-ul:not(.jstree-wholerow-ul) .jstree-clicked {
-			background: rgba(' . implode( ',', Responsive_Lightbox()->hex2rgb( $colors[3] ) ) . ', 0.15);
-		}
-		#rl-folders-tree-container .jstree-container-ul .jstree-wholerow-hovered,
-		#rl-folders-tree-container .jstree-container-ul:not(.jstree-wholerow-ul) .jstree-hovered {
-			background: rgba(' . implode( ',', Responsive_Lightbox()->hex2rgb( $colors[3] ) ) . ', 0.05);
-		}
-		';
-        wp_add_inline_style( 'responsive-lightbox-folders-jstree', $custom_css );
-		
-		// print_r( $colors ); exit;
+
+        wp_add_inline_style(
+			'responsive-lightbox-folders-jstree',
+			'#rl-folders-tree-container .jstree .rl-folders-state-active.rl-folders-state-hover {
+				background: #fff !important;
+			}
+			#rl-folders-tree-container .jstree-container-ul .jstree-wholerow-clicked,
+			#rl-folders-tree-container .jstree-container-ul:not(.jstree-wholerow-ul) .jstree-clicked {
+				background: rgba(' . $color . ', 0.15);
+			}
+			#rl-folders-tree-container .jstree-container-ul .jstree-wholerow-hovered,
+			#rl-folders-tree-container .jstree-container-ul:not(.jstree-wholerow-ul) .jstree-hovered {
+				background: rgba(' . $color . ', 0.05);
+			}'
+		);
 
 		// prepare variables
 		$no_items = '';
 		$childless = false;
 
 		// filterable media folders taxonomy
-		$taxonomy = get_taxonomy( Responsive_Lightbox()->options['folders']['media_taxonomy'] );
+		$taxonomy = get_taxonomy( $rl->options['folders']['media_taxonomy'] );
 
 		// list categories parameters
 		$categories = array(
@@ -980,8 +964,16 @@ var_dump( $folders );
 			$categories['current_category'] = $term_id;
 
 		// hide filter for grid
-		if ( $page !== 'media' && $this->mode !== 'list' )
-			wp_add_inline_style( 'responsive-lightbox-folders-admin-css', '#media-attachment-rl-folders-filters { display: none; }' );
+		if ( $page !== 'media' && $this->mode !== 'list' ) {
+			wp_add_inline_style(
+				'responsive-lightbox-folders-admin-css',
+				'#media-attachment-rl-folders-filters { display: none; }
+				.media-modal-content .media-frame select.attachment-filters {
+					max-width: 100%;
+					min-width: auto;
+				}'
+			);
+		}
 
 		// get taxonomy html output
 		$html = wp_list_categories( $categories );
@@ -1042,18 +1034,19 @@ var_dump( $folders );
 			</ul>';
 
 		// register scripts
-		wp_register_script( 'responsive-lightbox-folders-jstree', RESPONSIVE_LIGHTBOX_URL . '/assets/jstree/jstree' . ( ! ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '.min' : '' ) . '.js', array(), Responsive_Lightbox()->defaults['version'], false );
-		wp_register_script( 'responsive-lightbox-folders-perfect-scrollbar', RESPONSIVE_LIGHTBOX_URL . '/assets/perfect-scrollbar/perfect-scrollbar' . ( ! ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '.min' : '' ) . '.js', array(), Responsive_Lightbox()->defaults['version'], false );
+		wp_enqueue_script( 'responsive-lightbox-admin-select2', RESPONSIVE_LIGHTBOX_URL . '/assets/select2/select2.full' . ( ! ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '.min' : '' ) . '.js', array( 'jquery' ), $rl->defaults['version'] );
+		wp_register_script( 'responsive-lightbox-folders-jstree', RESPONSIVE_LIGHTBOX_URL . '/assets/jstree/jstree' . ( ! ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '.min' : '' ) . '.js', array(), $rl->defaults['version'], false );
+		wp_register_script( 'responsive-lightbox-folders-perfect-scrollbar', RESPONSIVE_LIGHTBOX_URL . '/assets/perfect-scrollbar/perfect-scrollbar' . ( ! ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '.min' : '' ) . '.js', array(), $rl->defaults['version'], false );
 
-		wp_enqueue_script( 'responsive-lightbox-folders-admin', RESPONSIVE_LIGHTBOX_URL . '/js/admin-folders.js', array( 'jquery', 'jquery-ui-draggable', 'jquery-ui-droppable', 'media-views', 'responsive-lightbox-folders-jstree', 'responsive-lightbox-folders-perfect-scrollbar' ), Responsive_Lightbox()->defaults['version'], false );
+		wp_enqueue_script( 'responsive-lightbox-folders-admin', RESPONSIVE_LIGHTBOX_URL . '/js/admin-folders.js', array( 'jquery', 'underscore', 'jquery-ui-draggable', 'jquery-ui-droppable', 'media-models', 'responsive-lightbox-folders-jstree', 'responsive-lightbox-folders-perfect-scrollbar', 'tags-suggest' ), $rl->defaults['version'], false );
 
 		wp_localize_script(
 			'responsive-lightbox-folders-admin',
 			'rlFoldersArgs',
 			array(
-				'remove_children'	=> (int) Responsive_Lightbox()->options['folders']['folders_removal'],
-				'wholerow'			=> (int) Responsive_Lightbox()->options['folders']['jstree_wholerow'],
-				// 'theme'				=> Responsive_Lightbox()->options['folders']['jstree_style'],
+				'remove_children'	=> (int) $rl->options['folders']['folders_removal'],
+				'wholerow'			=> (int) $rl->options['folders']['jstree_wholerow'],
+				// 'theme'				=> $rl->options['folders']['jstree_style'],
 				'theme'				=> 'default',
 				'counters'			=> $counters,
 				'taxonomy'			=> $taxonomy->name,
@@ -1107,7 +1100,7 @@ var_dump( $folders );
 	/**
 	 * CSS fix for media folders checklist.
 	 *
-	 * @return	void
+	 * @return void
 	 */
 	public function admin_print_media_styles() {
 		echo '<style>.rl_media_folder li .selectit input[type="checkbox"] { margin: 0 3px; }</style>';
@@ -1122,6 +1115,7 @@ var_dump( $folders );
     public function get_taxonomies() {
 		global $wpdb;
 
+		// query
 		$fields = $wpdb->get_col( '
 			SELECT DISTINCT tt.taxonomy
 			FROM ' . $wpdb->prefix . 'term_taxonomy tt

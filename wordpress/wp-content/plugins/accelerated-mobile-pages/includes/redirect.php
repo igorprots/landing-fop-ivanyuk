@@ -64,6 +64,7 @@ function ampforwp_redirection() {
       unset($current_url['?nonamp=1']);
       $current_url = array_flip($current_url);
       $current_url = implode('/', $current_url);
+      $current_url = user_trailingslashit($current_url);
       wp_safe_redirect( $current_url );
       exit;
   }
@@ -256,11 +257,11 @@ function ampforwp_redirection() {
         return;
     }
 
-    if ( ! session_id() ) {
+    if ( function_exists('session_id') && ! session_id() ) {
         session_start();
     }
 
-    if ( isset( $_SESSION['ampforwp_mobile'] ) && 'mobile-on' == $_SESSION['ampforwp_amp_mode'] && 'exit' == $_SESSION['ampforwp_mobile'] ) {
+    if ( isset( $_SESSION['ampforwp_mobile'] ) && (isset($_SESSION['ampforwp_amp_mode']) && 'mobile-on' == $_SESSION['ampforwp_amp_mode']) && 'exit' == $_SESSION['ampforwp_mobile'] ) {
         return;
     }
 

@@ -324,6 +324,7 @@ class wordfenceScanner {
 
 				$dataForFile = $this->dataForFile($file);
 				
+				$first = true;
 				while (!feof($fh)) {
 					$data = fread($fh, 1 * 1024 * 1024); //read 1 megs max per chunk
 					$readSize = wfUtils::strlen($data);
@@ -384,6 +385,11 @@ class wordfenceScanner {
 								else if (($type == 'both' || $type == 'browser') && $isJS) { $extraMsg = ''; }
 								else if (($type == 'both' || $type == 'browser') && !$treatAsBinary) { continue; }
 								
+								if (!$first && substr($rule[2], 0, 1) == '^') {
+									//wordfence::status(4, 'info', "Skipping malware signature ({$rule[0]}) because it only applies to the file beginning.");
+									continue;
+								}
+								
 								foreach ($commonStringIndexes as $i) {
 									if ($commonStringsFound[$i] === null) {
 										$s = $allCommonStrings[$i];
@@ -422,7 +428,7 @@ class wordfenceScanner {
 										));
 									}
 									$regexMatched = true;
-									$this->scanEngine->recordMetric('malwareSignature', $rule[0], array('file' => $file, 'match' => $matchString, 'before' => $beforeString, 'after' => $afterString, 'md5' => $record->newMD5, 'shac' => $record->SHAC), false);
+									$this->scanEngine->recordMetric('malwareSignature', $rule[0], array('file' => substr($file, 0, 255), 'match' => substr($matchString, 0, 65535), 'before' => $beforeString, 'after' => $afterString, 'md5' => $record->newMD5, 'shac' => $record->SHAC), false);
 									break;
 								}
 								
@@ -474,6 +480,8 @@ class wordfenceScanner {
 					if ($totalRead > 2 * 1024 * 1024) {
 						break;
 					}
+					
+					$first = false;
 				}
 				fclose($fh);
 				$this->totalFilesScanned++;

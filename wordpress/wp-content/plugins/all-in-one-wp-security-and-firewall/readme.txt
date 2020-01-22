@@ -3,7 +3,7 @@ Contributors: Tips and Tricks HQ, wpsolutions, Peter Petreski, Ruhul Amin, mbrso
 Donate link: https://www.tipsandtricks-hq.com
 Tags: security, secure, Anti Virus, antivirus, ban, ban hacker, virus, firewall, firewall security, login, lockdown, htaccess, hack, malware, vulnerability, protect, protection, phishing, database, backup, plugin, sql injection, ssl, restrict, login captcha, bot, hotlink, 404 detection, admin, rename, all in one, scan, scanner, iframe,
 Requires at least: 4.7
-Tested up to: 5.2
+Tested up to: 5.3
 Stable tag: trunk
 License: GPLv3
 
@@ -183,6 +183,14 @@ https://www.tipsandtricks-hq.com/wordpress-security-and-firewall-plugin
 None
 
 == Changelog ==
+
+= 4.4.2 =
+- Fixed vulnerability related to open redirect and exposure of hidden login page for specific case. (Thanks to Erwan (wpscanteam) for letting us know)
+
+= 4.4.1 =
+- Fixed bug where Apache directives were not being re-added into the .htaccess file after plugin re-activation.
+- Fixed bug related to account activity logout date not being set.
+
 = 4.4.0 =
 - Added robustness to login lockdown feature by replacing the strtotime function with DateTime/DateInterval. 
 This should prevent 32-bit systems from being constrained to the max date of 19 Jan 2038.

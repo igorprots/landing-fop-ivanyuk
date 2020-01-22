@@ -1,4 +1,7 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
 //main output function
 function ampforwp_framework_get_search_form() {
 		global $redux_builder_amp;
@@ -13,7 +16,7 @@ function ampforwp_framework_get_search_form() {
 			$amp_query_variable = 'amp';
 			$amp_query_variable_val = '1';
 		}
-	  $form = '<form role="search" method="get" id="amp-search" class="amp-search" target="_top" action="' . esc_url($action_url)  .'">
+	  $form = '<form role="search" method="get" class="amp-search" target="_top" action="' . esc_url($action_url)  .'">
 				<div class="amp-search-wrapper">
 					<label aria-label="Type your query" class="screen-reader-text" for="s">' . esc_html__($label,'accelerated-mobile-pages') . '</label>
 					<input type="text" placeholder="AMP" value="'.esc_attr($amp_query_variable_val).'" name="'.esc_attr($amp_query_variable).'" class="hidden"/>
@@ -25,7 +28,8 @@ function ampforwp_framework_get_search_form() {
 					</div>
 				</div>
 				</form>';
-	    echo $form;	// escaped above 
+		$form = apply_filters( 'ampforwp_search_form_data', $form );		
+	    echo $form;	// XSS OK
 }
 ampforwp_add_scripts();
 function ampforwp_add_scripts(){

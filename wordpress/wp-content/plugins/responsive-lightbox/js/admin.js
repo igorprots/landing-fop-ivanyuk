@@ -5,15 +5,26 @@
 		$( '.responsive-lightbox-settings' ).checkBo();
 
 		$( '.responsive-lightbox-settings input.reset-configuration' ).on( 'click', function() {
-			return confirm( rlArgs.resetScriptToDefaults );
+			return confirm( rlArgsAdmin.resetScriptToDefaults );
 		} );
 
 		$( '.responsive-lightbox-settings input.reset-settings' ).on( 'click', function() {
-			return confirm( rlArgs.resetSettingsToDefaults );
+			return confirm( rlArgsAdmin.resetSettingsToDefaults );
 		} );
 
 		$( '.responsive-lightbox-settings input.reset-gallery' ).on( 'click', function() {
-			return confirm( rlArgs.resetGalleryToDefaults );
+			return confirm( rlArgsAdmin.resetGalleryToDefaults );
+		} );
+
+		// slide toggle media provider options
+		$( '.rl-media-provider-expandable' ).on( 'change', function () {
+			var active = $( this ),
+				options = active.closest( 'td' ).find( '.rl-media-provider-options' );
+
+			if ( active.is( ':checked' ) )
+				options.slideDown( 'fast' );
+			else
+				options.slideUp( 'fast' );
 		} );
 
 		// load all previously used taxonomies
@@ -23,7 +34,6 @@
 				taxonomies = [];
 
 			select.find( 'option' ).each( function ( i, item ) {
-				console.log( item );
 				taxonomies.push( $( item ).val() );
 			} );
 
@@ -33,7 +43,7 @@
 			$.post( ajaxurl, {
 				action: 'rl-folders-load-old-taxonomies',
 				taxonomies: taxonomies,
-				nonce: rlArgs.tax_nonce
+				nonce: rlArgsAdmin.tax_nonce
 			} ).done( function ( response ) {
 				try {
 					if ( response.success && response.data.taxonomies.length > 0 ) {

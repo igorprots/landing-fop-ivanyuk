@@ -250,7 +250,7 @@
     border-color: inherit;
 }
 .cb-checkbox.disabled.checked .cb-inner {
-    background-color: inherit;
+    background-color: #ccc;
     border-color: inherit;
 }
 .cb-radio.disabled {
@@ -650,4 +650,8 @@ output {
 	padding-left: 0;
 	padding-right: 0;
 	font-style: italic;
+}
+.rl-spinner {
+	float: none;
+	margin: 0 0 0 4px;
 }

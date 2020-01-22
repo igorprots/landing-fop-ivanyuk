@@ -3,8 +3,8 @@ Contributors: mmaunder, wfryan, wfmatt, wfmattr
 Tags: security, firewall, malware scanner, web application firewall, two factor authentication, block hackers, country blocking, clean hacked site, blacklist, waf, login security
 Requires at least: 3.9
 Requires PHP: 5.3
-Tested up to: 5.2
-Stable tag: 7.4.0
+Tested up to: 5.3
+Stable tag: 7.4.5
 
 Secure your website with the most comprehensive WordPress security plugin. Firewall, malware scan, blocking, live traffic, login security & more.
 
@@ -104,7 +104,6 @@ We offer a Premium API key that gives you real-time updates to the Threat Defens
 * See all your traffic in real-time, including robots, humans, 404 errors, logins and logouts and who is consuming most of your content. Enhances your situational awareness of which security threats your site is facing.
 * A real-time view of all traffic including automated bots that often constitute security threats that Javascript analytics packages never show you.
 * Real-time traffic includes reverse DNS and city-level geolocation. Know which geographic area security threats originate from.
-* Monitor your DNS security for unauthorized DNS changes.
 * Monitors disk space which is related to security because many DDoS attacks attempt to consume all disk space to create denial of service.
 
 = What login security features are included =
@@ -112,7 +111,6 @@ We offer a Premium API key that gives you real-time updates to the Threat Defens
 * See all your traffic in real-time, including robots, humans, 404 errors, logins and logouts and who is consuming most of your content. Enhances your situational awareness of which security threats your site is facing.
 * A real-time view of all traffic including automated bots that often constitute security threats that Javascript analytics packages never show you.
 * Real-time traffic includes reverse DNS and city-level geolocation. Know which geographic area security threats originate from.
-* Monitor your DNS security for unauthorized DNS changes.
 * Monitors disk space which is related to security because many DDoS attacks attempt to consume all disk space to create denial of service.
 
 = How will I be alerted if my site has a security problem? =
@@ -184,6 +182,47 @@ Secure your website with Wordfence.
 9. Logging in is easy with Wordfence 2FA.
 
 == Changelog ==
+
+= 7.4.5 - January 15, 2020 =
+* Improvement: Improved WAF coverage for an Infinite WP authentication bypass vulnerability. Credit to Marc Montpas for finding a bypass.
+
+= 7.4.4 - January 14, 2020 =
+* Fix: Fixed a UI issue where the scan summary status marker for malware didn't always match the findings.
+
+= 7.4.3 - January 13, 2020 =
+* Improvement: Added WAF coverage for an Infinite WP authentication bypass vulnerability.
+* Improvement: The malicious URL scan now includes protocol-relative URLs (e.g., //example.com)
+* Improvement: Malware signatures are now better applied to large files read in multiple passes.
+* Improvement: Added a scan issue that will appear when one or more paths are skipped due to scan settings excluding them.
+* Changed: AJAX endpoints now send the application/json Content-Type header.
+* Changed: Updated text on scan issues for plugins removed from wordpress.org to better indicate possible reasons.
+* Changed: Added compatibility messaging for reCAPTCHA when WooCommerce is active.
+* Fixed: Added missing $wp_query->set_404() call when outputting a 404 page on a custom action.
+* Fixed: Fixed the logout username display in Live Traffic broken by a change in WordPress 5.3.
+* Fixed: Improved the response callback used for the WAF status check during extended protection installation.
+* Fixed: The "Require 2FA for all administrators" notice is now automatically dismissed if an administrator sets up 2FA.
+
+= 7.4.2 - December 3, 2019 =
+* Improvement: Increased performance of IP CIDR range comparisons.
+* Improvement: Added parameter signature to remote scanning for better validation during forking.
+* Change: Removed duplicate browser label in Live Traffic.
+* Fix: Added compensation for PHP 7.4 deprecation notice with get_magic_quotes_gpc.
+* Fix: Fixed potential notice in dashboard widget when no updates are found.
+* Fix: Updated JS hashing library to compensate for a variable name collision that could occur.
+* Fix: Fixed an issue where certain symlinks could cause a scan to erroneously skip files.
+* Fix: Fixed PHP memory test for newer PHP versions whose optimizations prevented it from allocating memory as desired.
+
+= 7.4.1 - November 6, 2019 =
+* Improvement: Updated the bundled GeoIP database.
+* Improvement: Minor changes to ensure compatibility with PHP 7.4.
+* Improvement: Updated the WHOIS lookup for better reliability.
+* Improvement: Added better diagnostic data when the WAF MySQL storage engine is active.
+* Improvement: Improved the messaging when switching between premium and free licenses.
+* Change: Deprecated DNS changes scan.
+* Change: The plugin will no longer email alerts when Central is managing them.
+* Fix: Added error suppression to ignore_user_abort calls to silence it on hosts with it disabled.
+* Fix: Improved path generation to better avoid outputting extra slashes in URLs.
+* Fix: Applied a length limit to malware reporting to avoid failures due to large content size.
 
 = 7.4.0 - August 22, 2019 =
 * Improvement: Added a MySQL-based configuration and data storage for the WAF to expand the number of hosting environments supported. For more detail, see: https://www.wordfence.com/help/firewall/mysqli-storage-engine/
