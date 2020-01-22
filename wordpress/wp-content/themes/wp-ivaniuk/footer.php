@@ -62,7 +62,7 @@
                         <a href="#"> <i class="fab fa-viber"></i> </a>
                     </li>
                     <li>
-                        <a href="#"> <i class="fa fa-envelope"></i> </a>
+                        <a href="mailto:fop.ivaniuk.oleksii@gmail.com"> <i class="fa fa-envelope"></i> </a>
                     </li>
                 </ul>
 
