@@ -47,16 +47,19 @@
 
                 <ul>
                     <li>
-                        <a href="#"> <i class="fab fa-facebook"></i> </a>
+                        <a href="https://www.facebook.com/profile.php?id=100001648886702"> <i class="fab fa-facebook"></i> </a>
                     </li>
                     <li>
-                        <a href="#"> <i class="fab fa-instagram"></i> </a>
+                        <a href="https://www.instagram.com/fop.ivaniuk.oleksii"> <i class="fab fa-instagram"></i> </a>
                     </li>
                     <li>
                         <a href="#"> <i class="fab fa-telegram-plane"></i> </a>
                     </li>
                     <li>
                         <a href="#"> <i class="fab fa-whatsapp"></i> </a>
+                    </li>
+                    <li>
+                        <a href="#"> <i class="fab fa-viber"></i> </a>
                     </li>
                     <li>
                         <a href="#"> <i class="fa fa-envelope"></i> </a>

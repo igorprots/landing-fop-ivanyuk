@@ -79,12 +79,6 @@
                     </div>
                 </section>
 
-
-
-
-
-
-
                 <section class="portfolio " id="portfolio">
                     <div class="container-fluid"></div>
                     <div class="row">
