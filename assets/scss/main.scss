@@ -74,7 +74,6 @@ a {
 .navbar-collapse {
     width: 100%;
     height: 100%;
-    background: white;
 }
 
 .navbar-toggle {
@@ -257,12 +256,17 @@ a {
     flex-direction: column;
     width: 100%;
     text-align: center;
+    margin-top: 30px;
 }
 
 form {
     display: flex;
     flex-direction: column;
     padding: 0 15%;
+}
+
+.wpcf7-form {
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 
@@ -490,6 +494,17 @@ footer {
     .navbar-nav.social {
         width: 100%;
     }
+    .contacts-footer {
+        display: flex;
+        flex-direction: column;
+    }
+    .navbar-collapse {
+        width: 100%;
+        height: 100%;
+        background: white;
+        position: absolute;
+        left: 0;
+    }
 }
 
 @media (max-width:480px) {
@@ -505,5 +520,12 @@ footer {
         background: url(../img/bg/header-bg-mobile.png) no-repeat !important;
         width: 100%;
         background-size: cover !important;
+        position: inherit;
+    }
+    .navbar-collapse {
+        background: white;
+        width: 100%;
+        position: absolute;
+        left: 0;
     }
 }

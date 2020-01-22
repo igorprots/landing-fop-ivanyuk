@@ -28,8 +28,9 @@
 
 <body <?php body_class(); ?>>
     <header>
+      <div class="container-fluid">
         <div class="row header">
-            <div class="navbar">
+            <div class="navbar col-12">
                 <div class="navbar-header">
                     <button class="navbar-toggle collapsed" data-target=".navbar-collapse" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span> <span class="icon-bar"></span> <span
@@ -72,4 +73,5 @@
                         </li>
                     </ul>
                 </div>
+      </div>
     </header>
