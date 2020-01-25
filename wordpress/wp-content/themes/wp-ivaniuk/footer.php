@@ -53,13 +53,13 @@
                         <a href="https://www.instagram.com/fop.ivaniuk.oleksii"> <i class="fab fa-instagram"></i> </a>
                     </li>
                     <li>
-                        <a href="#"> <i class="fab fa-telegram-plane"></i> </a>
+                        <a href="https://t.me/ivaniuk_oleksii"> <i class="fab fa-telegram-plane"></i> </a>
                     </li>
                     <li>
-                        <a href="#"> <i class="fab fa-whatsapp"></i> </a>
+                        <a href="https://wa.me/380683535630"> <i class="fab fa-whatsapp"></i> </a>
                     </li>
                     <li>
-                        <a href="#"> <i class="fab fa-viber"></i> </a>
+                        <a href="viber://add?number=380683535630"> <i class="fab fa-viber"></i> </a>
                     </li>
                     <li>
                         <a href="mailto:fop.ivaniuk.oleksii@gmail.com"> <i class="fa fa-envelope"></i> </a>
