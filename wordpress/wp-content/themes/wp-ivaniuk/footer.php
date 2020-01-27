@@ -1,4 +1,4 @@
-<footer>
+<footer role="contentinfo">
         <div class="container">
             <section class="contacts " id="contacts">
                 <h1>Контакти</h1>

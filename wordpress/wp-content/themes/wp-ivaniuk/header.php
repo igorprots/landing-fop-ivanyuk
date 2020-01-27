@@ -1,5 +1,5 @@
 <!doctype html>
-<html <?php language_attributes(); ?> class="no-js">
+<html <?php language_attributes(); ?> >
 <head>
   <meta charset="<?php bloginfo( 'charset' ); ?>">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -37,7 +37,7 @@
 </head>
 
 <body <?php body_class(); ?>>
-    <header>
+    <header role="banner">
       <div class="container-fluid">
         <div class="row header">
             <div class="navbar col-12">
@@ -45,41 +45,41 @@
                     <button class="navbar-toggle collapsed" data-target=".navbar-collapse" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span> <span class="icon-bar"></span> <span
                             class="icon-bar"></span></button>
-                    <a class="navbar-brand" href="<?php echo home_url(); ?>">ФОП Іванюк О.С.</a>
+                    <a class="navbar-brand" aria-label="navbar" href="<?php echo home_url(); ?>">ФОП Іванюк О.С.</a>
                 </div>
 
                 <div class="collapse navbar-collapse">
                 <?php /* wpeHeadNav(); */ ?>
-                    <ul class="nav navbar-nav">
+                    <ul class="nav navbar-nav" role="navigation">
                         <li>
-                            <a href="#service">Послуги</a>
+                            <a href="#service" aria-label="service">Послуги</a>
                         </li>
 
                         <li>
-                            <a href="#portfolio">Портфоліо</a>
+                            <a href="#portfolio" aria-label="portfolio">Портфоліо</a>
                         </li>
 
                         <li>
-                            <a href="#petition">Залишити заявку</a>
+                            <a href="#petition" aria-label="petition">Залишити заявку</a>
                         </li>
 
                         <li>
-                            <a href="#contacts">Контакти</a>
+                            <a href="#contacts" aria-label="contacts">Контакти</a>
                         </li>
                     </ul>
 
                     <ul class="nav navbar-nav social">
                         <li>
-                            <a href="#map"><i class="fa fa-map-marker"></i>21023,
+                            <a href="#map" aria-label="google map"><i class="fa fa-map-marker"></i>21023,
                                 м.Вiнниця <br>вул.Д.Галицького,27а <br>5
                                 пов.каб.504</a>
                         </li>
                         <li>
-                            <a href="mailto:fop.ivaniuk.oleksii@gmail.com"><i
+                            <a href="mailto:fop.ivaniuk.oleksii@gmail.com" aria-label="email"><i
                                     class="fa fa-envelope"></i>fop.ivaniuk.oleksii@gmail.com</a>
                         </li>
                         <li>
-                            <a href="tel:+380683535630"><i class="fa fa-phone"></i>тел.(068)-353-56-30</a>
+                            <a href="tel:+380683535630" aria-label="phone"><i class="fa fa-phone"></i>тел.(068)-353-56-30</a>
                         </li>
                     </ul>
                 </div>

@@ -1,6 +1,6 @@
 <?php  /* Template Name: Home Page */ get_header(); ?>
 
-    <div class="wrapper">
+    <div class="wrapper" role="main">
         <div class="container">
 
             <section class="service" id="service">
