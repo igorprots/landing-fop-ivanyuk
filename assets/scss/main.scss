@@ -111,6 +111,28 @@ a {
     padding-bottom: 6px;
 }
 
+.social i {
+    box-sizing: border-box;
+    background-size: contain;
+    display: block;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: -12px;
+}
+
+.map-marker {
+    background-image: url(../img/sprites/address.svg);
+}
+
+.envelope {
+    background-image: url(../img/sprites/mail.svg);
+}
+
+.phone {
+    background-image: url(../img/sprites/telephone.svg);
+}
+
 .navbar-nav {
     margin: -21.5px -15px 31px;
 }
@@ -472,40 +494,12 @@ footer {
     }
 }
 
-// @media (max-width:320px) {
-//     header {
-//         margin: 0;
-//     }
-//     .header {
-//         margin-top: -15px;
-//     }
-//     .navbar {
-//         min-height: 78vh;
-//         background: url(../img/bg/header-bg-mobile.jpg) no-repeat;
-//         width: 100%;
-//         background-size: cover !important;
-//     }
-//     .contacts {
-//         width: 100%;
-//         font-size: x-small;
-//     }
-//     .contacts-list {
-//         display: flex;
-//         flex-direction: column;
-//     }
-//     .navbar-header {
-//         padding: 0 15px;
-//     }
-//     .contacts-footer {
-//         display: flex;
-//         flex-direction: column;
-//     }
-// }
 @media (max-width: 768px) {
     .navbar-nav.social {
         width: 100%;
-        padding-left: 59%;
-        font-family: 'Arial black', sans-serif;
+        position: absolute;
+        top: 67px;
+        flex-direction: row-reverse;
     }
     .contacts-footer {
         display: flex;
@@ -518,6 +512,13 @@ footer {
     }
     .social li a {
         padding-bottom: 18px;
+        padding-left: 40px;
+    }
+    .social i {
+        left: 9px;
+    }
+    .contacts-footer li {
+        padding-bottom: 10px;
     }
 }
 
@@ -552,5 +553,11 @@ footer {
         width: 100%;
         padding-left: 0;
         font-family: inherit;
+        position: relative;
+        top: 0;
+    }
+    .navbar-nav.social {
+        display: flex;
+        flex-direction: column;
     }
 }

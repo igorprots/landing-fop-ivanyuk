@@ -70,16 +70,15 @@
 
                     <ul class="nav navbar-nav social">
                         <li>
-                            <a href="#map" aria-label="google map"><i class="fa fa-map-marker"></i>21023,
-                                м.Вiнниця <br>вул.Д.Галицького,27а <br>5
-                                пов.каб.504</a>
+                            <a href="#map" aria-label="google map"><i class=" map-marker"></i>21023,
+                                м.Вiнниця вул.Д.Галицького,27а <br>5 пов.каб.504</a>
                         </li>
                         <li>
                             <a href="mailto:fop.ivaniuk.oleksii@gmail.com" aria-label="email"><i
-                                    class="fa fa-envelope"></i>fop.ivaniuk.oleksii@gmail.com</a>
+                                    class="envelope"></i>fop.ivaniuk.oleksii@gmail.com</a>
                         </li>
                         <li>
-                            <a href="tel:+380683535630" aria-label="phone"><i class="fa fa-phone"></i>тел.(068)-353-56-30</a>
+                            <a href="tel:+380683535630" aria-label="phone"><i class="phone"></i>тел.(068)-353-56-30</a>
                         </li>
                     </ul>
                 </div>
